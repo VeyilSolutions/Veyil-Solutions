@@ -15,7 +15,7 @@ A modern React-based website for Veyil Solutions, converted from a static HTML/C
 ## 📁 Project Structure
 
 ```
-six-sigma-react/
+veyil-react/
 ├── public/
 │   ├── img/
 │   │   ├── logo.png
@@ -206,7 +206,7 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
-  base: "/six-sigma-react/", // repo name
+  base: "/veyil-react/", // repo name
 });
 ```
 ## Step 2: Install gh-pages
@@ -218,7 +218,7 @@ npm install --save-dev gh-pages
 
 ```bash
 {
-  "homepage": "https://your-username.github.io/six-sigma-react",
+  "homepage": "https://your-username.github.io/veyil-react",
   "scripts": {
     "build": "vite build",
     "deploy": "gh-pages -d dist"
@@ -235,7 +235,7 @@ npm run deploy
 Your site will be live at:
 
 ```bash
-https://your-username.github.io/six-sigma-react
+https://your-username.github.io/veyil-react
 ```
 
 ## ⚠️ Important Notes (All Platforms)
