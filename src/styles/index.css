@@ -1,0 +1,481 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===============================
+   BASE STYLES
+================================ */
+body { 
+  font-family: "Baloo Bhaijaan 2", sans-serif; 
+  scroll-behavior: smooth; 
+  overflow-x: hidden; 
+}
+
+/* ===============================
+   CUSTOM COLORS
+================================ */
+.bg-navy { background-color: #0A2540; }
+.text-navy { color: #0A2540; }
+.text-teal { color: #14B8A6; }
+.bg-teal { background-color: #14B8A6; }
+
+/* ===============================
+   NAV LINK STYLES
+================================ */
+.nav-link {
+  position: relative;
+  padding-bottom: 4px;
+  transition: color 0.3s ease;
+}
+
+.nav-link.active {
+  color: #0A2540;
+  font-weight: 700;
+}
+
+.nav-link:hover {
+  color: #4b93db;
+}
+
+.nav-link.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #0A2540;
+  border-radius: 2px;
+}
+
+/* ===============================
+   FAQ ACCORDION
+================================ */
+.faq-item.active .faq-answer { 
+  max-height: 300px; 
+  padding-top: 1rem; 
+  opacity: 1; 
+}
+
+.faq-answer { 
+  max-height: 0; 
+  overflow: hidden; 
+  opacity: 0; 
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); 
+}
+
+.faq-item.active i { 
+  transform: rotate(180deg); 
+}
+
+/* ===============================
+   PILLAR CARDS
+================================ */
+.pillar-card:hover .pillar-image { 
+  transform: scale(1.1); 
+  filter: grayscale(0); 
+}
+
+.pillar-image { 
+  transition: all 0.5s ease; 
+  filter: grayscale(1); 
+}
+
+/* ===============================
+   SERVICES — EXPANDABLE CARDS
+================================ */
+
+.bg-teal-500 {
+  background-color: #14b8a6;
+  color: #ffffff; /* SAME COLOR = invisible */
+}
+.learn-more-btn svg {
+  stroke: currentColor;
+}
+
+.solution-cards {
+  display: flex;
+  gap: 12px;
+  height: 520px;
+  border-radius: 20px;
+  overflow: hidden;
+  background: transparent;
+  padding: 12px;
+  box-shadow: none;
+  border: none;
+}
+
+.solution-card {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 16px;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+}
+
+.solution-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 3px;
+  height: 100%;
+  border-radius: 16px 0 0 16px;
+  z-index: 3;
+  opacity: 0.6;
+}
+
+/* Accent Colors */
+.solution-card[data-gradient="blue"]::before { background: #3b82f6; }
+.solution-card[data-gradient="purple"]::before { background: #8b5cf6; }
+.solution-card[data-gradient="teal"]::before { background: #14b8a6; }
+.solution-card[data-gradient="navy"]::before { background: #0A2540; }
+.solution-card[data-gradient="slate"]::before { background: #64748b; }
+
+.solution-card:hover {
+  flex: 5;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+}
+
+.card-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  filter: blur(18px) brightness(1.05) opacity(0.15);
+  transition: all 0.6s ease;
+  z-index: 1;
+}
+
+.solution-card:hover .card-bg {
+  filter: blur(0) brightness(1) opacity(0.22);
+}
+
+.card-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* Title Colors */
+.solution-card[data-gradient="blue"] .card-content h3 { color: #1e40af; }
+.solution-card[data-gradient="purple"] .card-content h3 { color: #6d28d9; }
+.solution-card[data-gradient="teal"] .card-content h3 { color: #0f766e; }
+.solution-card[data-gradient="navy"] .card-content h3 { color: #0A2540; }
+.solution-card[data-gradient="slate"] .card-content h3 { color: #334155; }
+
+.card-content h3 {
+  min-width: 14em;
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  transform: rotate(-90deg);
+  transition: all 0.6s ease;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.solution-card:hover .card-content h3 {
+  transform: rotate(0deg);
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.05em;
+}
+
+.card-content p {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.6s ease;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #475569;
+  margin-top: 0;
+  margin-bottom: 2rem;
+  font-weight: 400;
+}
+
+.solution-card:hover .card-content p {
+  opacity: 1;
+  max-height: 200px;
+}
+
+.learn-more-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  border-radius: 8px;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.4s ease;
+  color: #ffffff;
+}
+
+.solution-card:hover .learn-more-btn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.learn-more-btn:hover {
+  transform: translateY(-2px);
+}
+
+.learn-more-btn .btn-icon {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.3s ease;
+}
+
+.learn-more-btn:hover .btn-icon {
+  transform: translateX(4px);
+}
+
+/* ===============================
+   SOCIAL ICONS
+================================ */
+/* ===============================
+   SOCIAL ICONS BASE
+================================ */
+
+/* ===============================
+   SOCIAL SECTION (FOOTER)
+================================ */
+
+.social-section {
+  position: relative;
+  margin-top: 28px; /* space from description text */
+}
+
+/* ===============================
+   ICON LIST
+================================ */
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Individual icon wrapper */
+.wrapper .icon {
+  position: relative;
+  display: flex;
+}
+
+/* ===============================
+   ICON CONTAINER
+================================ */
+
+.wrapper .icon a {
+  width: 38px;               /* slightly larger for footer */
+  height: 38px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: background 0.35s ease, border-color 0.35s ease;
+}
+
+/* ===============================
+   ICON IMAGES
+================================ */
+
+.wrapper .icon img {
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.icon-default {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.icon-hover {
+  opacity: 0;
+  transform: scale(0.85);
+}
+
+.wrapper .icon:hover .icon-default {
+  opacity: 0;
+  transform: scale(1.1);
+}
+
+.wrapper .icon:hover .icon-hover {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ===============================
+   TOOLTIP (FOOTER SAFE)
+================================ */
+
+.wrapper .tooltip {
+  position: absolute;
+  top: -46px; /* more breathing room */
+  left: 50%;
+  transform: translateX(-50%) translateY(6px);
+  background: #0a2540;
+  color: #ffffff;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 20;
+}
+
+.wrapper .tooltip::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 8px;
+  height: 8px;
+  background: inherit;
+}
+
+.wrapper .icon:hover .tooltip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ===============================
+   BRAND COLORS
+================================ */
+
+.linkedin a:hover {
+  background: #0077b5;
+  border-color: #0077b5;
+}
+
+.facebook a:hover {
+  background: #1877f2;
+  border-color: #1877f2;
+}
+
+.twitter a:hover {
+  background: #000000;
+  border-color: #000000;
+}
+
+.instagram a:hover {
+  background: radial-gradient(
+      circle at 30% 107%,
+      #fdf497 0%,
+      #fdf497 5%,
+      #fd5949 45%,
+      #d6249f 60%,
+      #285AEB 90%
+  );
+  border-color: transparent;
+}
+
+
+/* ===============================
+   ACCESSIBILITY
+================================ */
+
+.wrapper .icon a:focus-visible {
+  outline: 3px solid #14b8a6;
+  outline-offset: 3px;
+}
+
+/* ===============================
+   REDUCED MOTION
+================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .wrapper .icon img,
+  .wrapper .tooltip,
+  .wrapper .icon a {
+    transition: none;
+  }
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 1024px) {
+  .solution-cards {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .solution-card {
+    height: 120px;
+  }
+
+  .solution-card:hover {
+    height: 420px;
+  }
+
+  .card-content h3 {
+    transform: rotate(0deg);
+    font-size: 1.3rem;
+  }
+
+  .solution-card:hover .card-content h3 {
+    font-size: 1.8rem;
+  }
+
+  .card-content {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .solution-cards {
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .card-content {
+    padding: 1.2rem;
+  }
+
+  .solution-card:hover .card-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .card-content p {
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .learn-more-btn {
+    padding: 10px 24px;
+    font-size: 0.85rem;
+  }
+}

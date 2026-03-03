@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Veyil Solutions | Shopify & E-commerce Website Development in Tamil Nadu</title>
+
+    <link rel="icon" type="image/png" href="/faviconbg.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400..800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- 🔥 INITIAL LOADER STYLE -->
+    <style>
+      body {
+        margin: 0;
+        background: #ffffff;
+      }
+
+      #initial-loader {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #ffffff;
+        z-index: 999999;
+      }
+
+      .sun-loader {
+        width: 45px; /* smaller */
+        height: 45px;
+        border-radius: 50%;
+        background: radial-gradient(circle, #ffcc33, #ff6f00);
+        animation: pulse 1.4s infinite ease-in-out;
+        box-shadow: 0 0 20px rgba(255, 140, 0, 0.5);
+      }
+
+      @keyframes pulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.15); }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- 🔥 INITIAL LOADER -->
+    <div id="initial-loader">
+      <div class="sun-loader"></div>
+    </div>
+
+    <div id="root"></div>
+
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
