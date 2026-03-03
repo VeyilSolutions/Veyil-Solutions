@@ -1,6 +1,6 @@
-# Six Sigma Solutions - React Website
+# Veyil Solutions - React Website
 
-A modern React-based website for Six Sigma Solutions, converted from a static HTML/CSS/JS site.
+A modern React-based website for Veyil Solutions, converted from a static HTML/CSS/JS site.
 
 ## 🚀 Tech Stack
 
@@ -19,12 +19,8 @@ six-sigma-react/
 ├── public/
 │   ├── img/
 │   │   ├── logo.png
-│   │   ├── team/
-│   │   │   ├── 1.png
-│   │   │   ├── 2.png
-│   │   │   └── 3.png
 │   │   └── business.json        # Lottie animation
-│   └── favicon.ico
+│   └── favicon.png
 │
 ├── src/
 │   ├── assets/                  # Imported images (ESM)
@@ -43,6 +39,7 @@ six-sigma-react/
 │   │   ├── ServiceFeatures.jsx
 │   │   ├── ServiceHero.jsx
 │   │   ├── SocialIcons.jsx
+│   │   ├── NotFoundPage.jsx
 │   │   └── Testimonials.jsx
 │
 │   ├── pages/                   # Route-level pages
@@ -50,12 +47,15 @@ six-sigma-react/
 │   │   ├── Contact.jsx
 │   │   ├── PrivacyPolicy.jsx
 │   │   ├── TermsConditions.jsx
-│   │   └── services/
-│   │       ├── AIAgents.jsx
-│   │       ├── DigitalMarketing.jsx
-│   │       ├── MobileAppDevelopment.jsx
-│   │       ├── WebDesign.jsx
-│   │       └── WebDevelopment.jsx
+│   │   ├── services/
+│   │   │   ├── MobileAppDevelopment.jsx
+│   │   │   ├── WebDesign.jsx
+│   │   │   └── WebDevelopment.jsx
+│   │   └── policies/
+│   │       ├── CookiePolicy.jsx
+│   │       ├── PrivacyPolicy.jsx
+│   │       ├── TermsConditions.jsx
+│   │       └── WorkProcess.jsx
 │
 │   ├── styles/
 │   │   ├── index.css                  # Main UI Style
@@ -84,7 +84,7 @@ six-sigma-react/
 
 2. **Add assets:**
    Place static files in `public/img/`:
-   - `Six Sigma logo.png` - Company logo
+   - `Veyil logo.png` - Company logo
    - `1.png`, `2.png`, `3.png` - Team member photos
    - `business.json` - Lottie animation file
    - Service images (optional)
@@ -104,21 +104,6 @@ six-sigma-react/
    ```bash
    npm run preview
    ```
-
-## 📄 Pages & Routes
-
-| Route                              | Page              | Description                              |
-| ---------------------------------- | ----------------- | ---------------------------------------- |
-| `/`                                | Home              | Hero, services, about, FAQ, testimonials |
-| `/services/web-development`        | Web Development   | Service detail page                      |
-| `/services/mobile-app-development` | Mobile App Dev    | Service detail page                      |
-| `/services/web-design`             | Web Design        | Service detail page                      |
-| `/services/ai-agents`              | AI Agents         | Service detail page                      |
-| `/services/digital-marketing`      | Digital Marketing | Service detail page                      |
-| `/contact`                         | Contact           | Contact form                             |
-| `/privacy-policy`                  | Privacy Policy    | Legal info                               |
-| `/terms-and-conditions`            | Terms             | Legal info                               |
-
 
 ## 🎨 Styling & Configuration
 
@@ -286,4 +271,4 @@ Use **HashRouter** OR configure SPA fallback.
 
 ## 📝 License
 
-© 2026 Six Sigma Solutions. All rights reserved.
+© 2026 Veyil Solutions. All rights reserved.
