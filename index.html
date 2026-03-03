@@ -1,57 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Veyil Solutions | Shopify & E-commerce Website Development in Tamil Nadu</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="icon" type="image/png" href="/faviconbg.png">
+  <!-- Primary SEO -->
+  <title>Veyil Solutions | Shopify & E-commerce Website Development in Tamil Nadu</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400..800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <meta name="description" content="Veyil Solutions helps product-based businesses in Tamil Nadu build high-converting Shopify stores and professional brand identities. Free Sample First – see your design before you pay.">
 
-    <!-- 🔥 INITIAL LOADER STYLE -->
-    <style>
-      body {
-        margin: 0;
-        background: #ffffff;
-      }
+  <meta name="author" content="Veyil Solutions">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#1a1f36">
 
-      #initial-loader {
-        position: fixed;
-        inset: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: #ffffff;
-        z-index: 999999;
-      }
+  <!-- Canonical (Update after custom domain) -->
+  <link rel="canonical" href="https://veyilsolutions.vercel.app/" />
 
-      .sun-loader {
-        width: 45px; /* smaller */
-        height: 45px;
-        border-radius: 50%;
-        background: radial-gradient(circle, #ffcc33, #ff6f00);
-        animation: pulse 1.4s infinite ease-in-out;
-        box-shadow: 0 0 20px rgba(255, 140, 0, 0.5);
-      }
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Veyil Solutions">
+  <meta property="og:title" content="Shopify Website Development in Tamil Nadu | Free Sample First">
+  <meta property="og:description" content="We build Shopify stores for product businesses. See a design preview before payment. No blind commitment.">
+  <meta property="og:url" content="https://veyilsolutions.vercel.app/">
+  <meta property="og:image" content="https://veyilsolutions.vercel.app/og-image.png">
 
-      @keyframes pulse {
-        0%, 100% { transform: scale(1); }
-        50% { transform: scale(1.15); }
-      }
-    </style>
-  </head>
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Veyil Solutions | Shopify & Branding Experts">
+  <meta name="twitter:description" content="Free Sample First Shopify website development for product-based businesses in Tamil Nadu.">
+  <meta name="twitter:image" content="https://veyilsolutions.vercel.app/og-image.png">
 
-  <body>
-    <!-- 🔥 INITIAL LOADER -->
-    <div id="initial-loader">
-      <div class="sun-loader"></div>
-    </div>
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/faviconbg.png">
 
-    <div id="root"></div>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+  <!-- Initial Loader -->
+  <style>
+    body {
+      margin: 0;
+      background: #ffffff;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    #initial-loader {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #ffffff;
+      z-index: 999999;
+    }
+
+    .sun-loader {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #ffcc33, #ff6f00);
+      animation: pulse 1.4s infinite ease-in-out;
+      box-shadow: 0 0 20px rgba(255, 140, 0, 0.5);
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+    }
+  </style>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Veyil Solutions",
+    "url": "https://veyilsolutions.vercel.app/",
+    "logo": "https://veyilsolutions.vercel.app/logo.png",
+    "image": "https://veyilsolutions.vercel.app/og-image.png",
+    "description": "Shopify website development and branding agency helping product businesses in Tamil Nadu grow online.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "IN"
+    }
+  }
+  </script>
+
+</head>
+
+<body>
+
+  <!-- Initial Loader -->
+  <div id="initial-loader">
+    <div class="sun-loader"></div>
+  </div>
+
+  <!-- React Root -->
+  <div id="root"></div>
+
+  <!-- React Entry -->
+  <script type="module" src="/src/main.jsx"></script>
+
+</body>
 </html>
