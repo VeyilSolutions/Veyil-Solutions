@@ -7,6 +7,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Loader from "./components/Loader";
 import NotFoundPage from "./components/NotFoundPage";
+import VeyilChatbot from "./components/VeyilChatbot";
 
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
@@ -129,6 +130,7 @@ function App() {
       </div>
 
       <Footer />
+      <VeyilChatbot />
     </div>
   );
 }
