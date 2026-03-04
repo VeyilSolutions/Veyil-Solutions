@@ -17,9 +17,9 @@ A modern React-based website for Veyil Solutions, converted from a static HTML/C
 ```
 veyil-react/
 ├── public/
-│   ├── img/
-│   │   ├── logo.png
-│   │   └── business.json        # Lottie animation
+│   ├── img/ 
+│   │   ├── business.json           # Lottie animation
+│   │   └── Veyil_Solutions.png     # Logo
 │   └── favicon.png
 │
 ├── src/
@@ -35,18 +35,18 @@ veyil-react/
 │   │   ├── InteractiveServices.jsx
 │   │   ├── Loader.jsx
 │   │   ├── Navbar.jsx
+│   │   ├── NotFoundPage.jsx
 │   │   ├── ServiceCTA.jsx
 │   │   ├── ServiceFeatures.jsx
 │   │   ├── ServiceHero.jsx
 │   │   ├── SocialIcons.jsx
-│   │   ├── NotFoundPage.jsx
 │   │   └── Testimonials.jsx
 │
 │   ├── pages/                   # Route-level pages
 │   │   ├── Home.jsx
 │   │   ├── Contact.jsx
-│   │   ├── PrivacyPolicy.jsx
-│   │   ├── TermsConditions.jsx
+│   │   ├── faq.jsx
+│   │   ├── price.jsx
 │   │   ├── services/
 │   │   │   ├── MobileAppDevelopment.jsx
 │   │   │   ├── WebDesign.jsx
@@ -56,11 +56,11 @@ veyil-react/
 │   │       ├── PrivacyPolicy.jsx
 │   │       ├── TermsConditions.jsx
 │   │       └── WorkProcess.jsx
-│
+│   │
 │   ├── styles/
 │   │   ├── index.css                  # Main UI Style
 │   │   └── form.css                  # Form UI Style
-│
+│   │
 │   ├── App.jsx                  # Main app & routes
 │   └── main.jsx                 # Entry point
 │
@@ -70,6 +70,7 @@ veyil-react/
 ├── tailwind.config.js
 ├── postcss.config.js
 ├── vite.config.js
+├── vercel.json
 ├── .gitignore
 └── README.md
 
@@ -117,7 +118,7 @@ Custom colors and fonts are configured in `tailwind.config.js`:
 
 ### Contact Form
 
-  - Uses a Google Apps Script backend
+  - Uses a Formspree 
   - Endpoint can be updated in:
     ```bash
       src/pages/Contact.jsx
