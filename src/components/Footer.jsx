@@ -39,7 +39,7 @@ function Footer() {
           <Link to="/" className="flex items-center gap-2 mb-6">
             <div className="h-8 flex items-center">
                <img
-                  src="/img/favicon.png"
+                  src="/faviconbg.png"
                   alt="Veyil Solutions Logo"
                   className="h-full w-auto"
                 />

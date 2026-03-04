@@ -22,16 +22,6 @@ const testimonials = [
     description:
       "Excellent web development—clean, responsive, and professional.",
   },
-  {
-    id: 2,
-    name: "Logu",
-    company: "Veyil Solutions",
-    image: prasanaImg,
-    logo: leaderLogo,
-    link: "https://leaderclothings.in",
-    description:
-      "Swipe in any direction — left, right, up, or down — to change testimonials.",
-  },
 ]
 
 export default function CleanPhysicsTestimonials() {
