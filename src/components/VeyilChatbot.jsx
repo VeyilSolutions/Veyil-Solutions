@@ -130,7 +130,14 @@ const LOCAL = {
 function matchLocal(msg, lang) {
   const m = msg.toLowerCase();
   const r = LOCAL[lang];
+
+  // 1. Check for Greeting
   if (/\b(hi|hello|hey|hai|helo|start|வணக்கம்|ஹலோ)\b/.test(m)) return r.hello;
+  
+  // 2. NEW: Check for Affirmative "Yes" to trigger Free Sample
+  if (/\b(yes|ok|sure|yeah|yep|okay|ஆம்|சரி)\b/.test(m)) return r.free;
+
+  // 3. Existing Keyword Checks
   if (/additional|extra cost|separate|தனி|கூடுதல்/.test(m)) return r.additional;
   if (/contact|reach|call|phone|number|தொடர்பு|எண்/.test(m)) return r.contact;
   if (/shopify|platform|subscription|1999/.test(m)) return r.shopify;
@@ -140,6 +147,7 @@ function matchLocal(msg, lang) {
   if (/launch|8000|8,000/.test(m)) return r.launch;
   if (/free|sample|இலவச|மாதிரி|preview/.test(m)) return r.free;
   if (/price|cost|pricing|rate|how much|கட்டணம்|விலை|எவ்வளவு/.test(m)) return r.pricing;
+
   return null;
 }
 
