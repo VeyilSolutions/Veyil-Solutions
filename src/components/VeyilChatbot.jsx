@@ -249,7 +249,7 @@ export default function VeyilChatbot() {
 
         /* FAB */
         .vc-fab{
-          width:56px;height:56px;border-radius:15px;
+          width:50px;height:50px;border-radius:15px;
           background:linear-gradient(145deg,#0f172a 0%,#1d4ed8 100%);
           border:none;cursor:pointer;
           display:flex;align-items:center;justify-content:center;
@@ -569,9 +569,45 @@ export default function VeyilChatbot() {
               <path d="M18 6L6 18M6 6l12 12"/>
             </svg>
           ) : (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-            </svg>
+            <svg 
+    viewBox="0 0 24 24" 
+    fill="none" 
+    xmlns="http://www.w3.org/2000/svg" 
+    className="w-8 h-8 sm:w-9 sm:h-9 text-blue-400 group-hover:text-white transition-all duration-300"
+  >
+    {/* Left Data Bracket */}
+    <path 
+      d="M7 8L3 12L7 16" 
+      stroke="currentColor" 
+      strokeWidth="2.5" 
+      strokeLinecap="round" 
+      strokeLinejoin="round" 
+    />
+    
+    {/* Right Data Bracket */}
+    <path 
+      d="M17 8L21 12L17 16" 
+      stroke="currentColor" 
+      strokeWidth="2.5" 
+      strokeLinecap="round" 
+      strokeLinejoin="round" 
+    />
+    
+    {/* The Central Neural Core (Diamond Eye) */}
+    <rect 
+      x="12" y="7" width="7" height="7" 
+      rx="1" 
+      transform="rotate(45 12 7)" 
+      fill="currentColor" 
+      className="animate-pulse" 
+    />
+    
+    {/* Top Connectivity Signal */}
+    <path d="M12 3V5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" opacity="0.5" />
+    
+    {/* Bottom Stability Base */}
+    <path d="M9 21H15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" opacity="0.3" />
+  </svg>
           )}
         </button>
       </div>
