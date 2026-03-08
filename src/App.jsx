@@ -26,31 +26,13 @@ import WebDesign from "@/pages/services/WebDesign";
 import Blogs from "@/pages/Blogs/Blogs";
 import BlogDetails from "@/pages/Blogs/BlogDetails";
 
-/* Scroll To Top */
-function ScrollToTop() {
-  const { pathname, hash } = useLocation();
-
-  useEffect(() => {
-    if (hash) {
-      requestAnimationFrame(() => {
-        const el = document.querySelector(hash);
-        el?.scrollIntoView({ behavior: "smooth" });
-      });
-    } else {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-  }, [pathname, hash]);
-
-  return null;
-}
-
 function App() {
   const location = useLocation();
   const aosInitialized = useRef(false);
   const isFirstLoad = useRef(true);
   const [loading, setLoading] = useState(false);
 
-  // Initial HTML Loader removal
+  // 1. Initial HTML Loader removal (on site entry)
   useEffect(() => {
     const htmlLoader = document.getElementById("initial-loader");
     if (htmlLoader) {
@@ -60,7 +42,7 @@ function App() {
     }
   }, []);
 
-  // AOS Initialization
+  // 2. AOS Initialization & Refresh
   useEffect(() => {
     if (!aosInitialized.current) {
       AOS.init({
@@ -74,41 +56,56 @@ function App() {
     }
   }, [location.pathname]);
 
-  // Page Transition Loader Logic
+  // 3. Combined Page Transition, Loader, and Scroll Logic
   useEffect(() => {
-    // 1. Handle first site visit
+    // Skip the transition loader for the very first visit to the Home page
     if (isFirstLoad.current) {
       isFirstLoad.current = false;
-      // If landing on home, don't show the 1.8s delay
       if (location.pathname === "/") return;
     }
 
-    // 2. Start Loading
     setLoading(true);
 
-    // 3. Different timing for Home vs other pages
-    let delay = 1800;
-    if (location.pathname === "/") {
-        delay = 100; // Fast clear for home
-    }
+    // Determine timing
+    const delay = location.pathname === "/" ? 100 : 1800;
 
     const timer = setTimeout(() => {
       setLoading(false);
+
+      // CRITICAL: Scroll only after loading is false and DOM height is restored
+      // Using a small timeout to ensure the "h-0" class is removed first
+      setTimeout(() => {
+        if (location.hash) {
+          const el = document.querySelector(location.hash);
+          if (el) {
+            el.scrollIntoView({ behavior: "smooth" });
+          }
+        } else {
+          // Reset to top instantly so the page is ready when the loader disappears
+          window.scrollTo({ top: 0, behavior: "instant" });
+        }
+      }, 10);
+
     }, delay);
 
     return () => clearTimeout(timer);
-  }, [location.pathname]);
+  }, [location.pathname, location.hash]);
 
   return (
     <div className="bg-white text-slate-800 font-baloo min-h-screen flex flex-col">
-      <ScrollToTop />
-
-      {/* LOADER OVERLAY: Keep visible based on state */}
+      
+      {/* LOADER OVERLAY */}
       {loading && <Loader visible={true} />}
 
-      {/* Main Content: We use a wrapper to hide/show without unmounting the whole app */}
-      <div className={`flex flex-col flex-grow ${loading ? "invisible h-0 overflow-hidden" : "visible"}`}>
-        
+      {/* Main Content Wrapper: 
+          We use 'invisible' and 'h-0' to keep the component mounted 
+          but prevent the user from seeing the page jump while it's loading.
+      */}
+      <div 
+        className={`flex flex-col flex-grow transition-opacity duration-300 ${
+          loading ? "invisible h-0 overflow-hidden opacity-0" : "visible opacity-100"
+        }`}
+      >
         <Navbar />
 
         <div className="flex-grow">
