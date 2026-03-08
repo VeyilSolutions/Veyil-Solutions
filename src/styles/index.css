@@ -93,7 +93,7 @@ html, body {
 
 .bg-teal-500 {
   background-color: #14b8a6;
-  color: #ffffff; /* SAME COLOR = invisible */
+  color: #ffffff; 
 }
 .learn-more-btn svg {
   stroke: currentColor;
@@ -254,19 +254,12 @@ html, body {
 }
 
 /* ===============================
-   SOCIAL ICONS
-================================ */
-/* ===============================
-   SOCIAL ICONS BASE
-================================ */
-
-/* ===============================
-   SOCIAL SECTION (FOOTER)
+   SOCIAL SECTION 
 ================================ */
 
 .social-section {
   position: relative;
-  margin-top: 28px; /* space from description text */
+  margin-top: 28px; 
 }
 
 /* ===============================
@@ -282,7 +275,6 @@ html, body {
   margin: 0;
 }
 
-/* Individual icon wrapper */
 .wrapper .icon {
   position: relative;
   display: flex;
@@ -293,7 +285,7 @@ html, body {
 ================================ */
 
 .wrapper .icon a {
-  width: 38px;               /* slightly larger for footer */
+  width: 38px;       
   height: 38px;
   border-radius: 50%;
   background: #ffffff;
@@ -344,7 +336,7 @@ html, body {
 
 .wrapper .tooltip {
   position: absolute;
-  top: -46px; /* more breathing room */
+  top: -46px; 
   left: 50%;
   transform: translateX(-50%) translateY(6px);
   background: #0a2540;

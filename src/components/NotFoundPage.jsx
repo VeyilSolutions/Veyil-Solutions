@@ -6,7 +6,6 @@ const NotFoundPage = () => {
   const navigate = useNavigate();
 
   const handleGoBack = () => {
-    // If there is no history, send them home instead of doing nothing
     if (window.history.length > 1) {
       navigate(-1);
     } else {
@@ -16,24 +15,16 @@ const NotFoundPage = () => {
 
   return (
     <section className="relative bg-white min-h-screen flex items-center justify-center px-6 py-20 overflow-hidden">
-      {/* Background Gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-yellow-50 via-white to-blue-50 opacity-80" />
-
-      {/* Soft Glow Behind 404 */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[20rem] sm:w-[40rem] h-[20rem] sm:h-[40rem] bg-yellow-200/20 rounded-full blur-[100px]" />
 
       <div className="relative z-10 max-w-3xl w-full text-center">
-        
-        {/* 4 ☀ 4 Container */}
         <div className="flex justify-center items-center gap-4 sm:gap-10 mb-8 
                         text-[6rem] md:text-[11rem] 
                         font-black text-slate-900 leading-none select-none">
-
           <span className="flex items-center">4</span>
-
-          {/* Animated Sun */}
           <div className="relative flex items-center justify-center w-[0.7em] h-[0.7em]">
-            {/* Rotating Rays - Added for thematic consistency */}
+        
             <div className="absolute inset-0 animate-[spin_20s_linear_infinite] opacity-40">
               {[...Array(8)].map((_, i) => (
                 <div 
@@ -43,15 +34,11 @@ const NotFoundPage = () => {
                 />
               ))}
             </div>
-
-            {/* Core Sun */}
             <div 
               className="relative w-full h-full rounded-full 
                          bg-gradient-to-br from-yellow-400 to-orange-500
                          shadow-[0_0_60px_rgba(255,165,0,0.4)]
-                         flex items-center justify-center overflow-hidden"
-            >
-                {/* Subtle inner reflection */}
+                         flex items-center justify-center overflow-hidden">
                 <div className="absolute top-[10%] left-[10%] w-1/3 h-1/3 bg-white/30 rounded-full blur-md" />
             </div>
           </div>

@@ -1,8 +1,6 @@
 export default function ServiceHero({ title, subtitle, image }) {
   return (
     <section className="relative bg-slate-900 text-white overflow-hidden">
-      
-      {/* subtle background pattern */}
       <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900 to-slate-800" />
       <div className="absolute inset-y-0 right-0 w-1/3 bg-teal/10 hidden lg:block" />
 
@@ -27,7 +25,6 @@ export default function ServiceHero({ title, subtitle, image }) {
         {image && (
           <div className="hidden lg:flex justify-center">
             <div className="relative">
-              {/* soft glow behind image */}
               <div className="absolute -inset-6 bg-teal/20 rounded-3xl blur-2xl" />
 
               <img

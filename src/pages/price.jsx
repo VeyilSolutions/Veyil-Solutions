@@ -150,7 +150,6 @@ export default function PricingPage() {
               <div className="mt-10">
                 <Link
                   to={plan.to}
-                  /* 🔽 ADDED STATE HERE 🔽 */
                   state={{ selectedPlan: plan.name }}
                   className={`flex w-full justify-center rounded-xl px-6 py-4 text-sm font-bold transition-all ${
                     plan.isPopular

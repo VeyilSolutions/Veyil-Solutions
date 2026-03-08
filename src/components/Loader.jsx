@@ -4,6 +4,7 @@ function Loader({ visible }) {
   return (
     <Overlay className={visible ? "show" : "hide"}>
       <div className="logo">
+        
         {/* Rays */}
         <div className="rays">
           {[...Array(16)].map((_, i) => (

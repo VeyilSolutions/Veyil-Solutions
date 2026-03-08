@@ -21,7 +21,7 @@
 
 .contact-left {
   position: sticky;
-  top: 100px; /* stays visible while scrolling the form */
+  top: 100px; 
 }
 
 .contact-left__inner {
@@ -364,7 +364,7 @@
 }
 
 /* =============================================
-   ANIMATED SEND BUTTON (alternate variant)
+   ANIMATED SEND BUTTON
    ============================================= */
 
 .animated-send-button {

@@ -217,7 +217,6 @@ export default function VeyilChatbot() {
     setMessages((p) => [...p, { role: "user", text: msg }]);
     setLoading(true);
 
-    // Instant local match
     const local = matchLocal(msg, lang);
     if (local) {
       await new Promise((r) => setTimeout(r, 150));
@@ -226,7 +225,6 @@ export default function VeyilChatbot() {
       return;
     }
 
-    // Gemini fallback
     try {
       const model = genAI.getGenerativeModel({
         model: "gemini-2.5-flash",
@@ -249,15 +247,15 @@ export default function VeyilChatbot() {
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Noto+Sans+Tamil:wght@400;500;600&display=swap');
 
-        .vc*,.vc *,.vc *::before,.vc *::after{box-sizing:border-box;margin:0;padding:0}
+        .veyil-ai*,.veyil-ai *,.veyil-ai *::before,.veyil-ai *::after{box-sizing:border-box;margin:0;padding:0}
 
-        .vc{
+        .veyil-ai{
           font-family:'DM Sans','Noto Sans Tamil',sans-serif;
           position:fixed;bottom:24px;right:24px;z-index:99999;
         }
 
         /* FAB */
-        .vc-fab{
+        .veyil-ai-fab{
           width:50px;height:50px;border-radius:15px;
           background:linear-gradient(145deg,#0f172a 0%,#1d4ed8 100%);
           border:none;cursor:pointer;
@@ -266,152 +264,152 @@ export default function VeyilChatbot() {
           transition:transform .18s,box-shadow .18s;
           position:relative;margin-left:auto;
         }
-        .vc-fab:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(29,78,216,.52)}
-        .vc-fab svg{width:25px;height:25px;color:#fff;transition:transform .25s}
-        .vc-fab.open svg{transform:rotate(90deg)}
-        .vc-badge{
+        .veyil-ai-fab:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(29,78,216,.52)}
+        .veyil-ai-fab svg{width:25px;height:25px;color:#fff;transition:transform .25s}
+        .veyil-ai-fab.open svg{transform:rotate(90deg)}
+        .veyil-ai-badge{
           position:absolute;top:-3px;right:-3px;
           width:13px;height:13px;background:#ef4444;
           border:2px solid #fff;border-radius:50%;
-          animation:vcP 1.8s ease-in-out infinite;
+          animation:veyil-aiP 1.8s ease-in-out infinite;
         }
-        @keyframes vcP{0%,100%{transform:scale(1)}50%{transform:scale(1.4)}}
+        @keyframes veyil-aiP{0%,100%{transform:scale(1)}50%{transform:scale(1.4)}}
 
         /* WINDOW */
-        .vc-win{
+        .veyil-ai-win{
           position:absolute;bottom:68px;right:0;
           width:376px;height:590px;
           background:#fff;border-radius:18px;
           box-shadow:0 28px 72px rgba(15,23,42,.16),0 4px 14px rgba(0,0,0,.08);
           display:flex;flex-direction:column;overflow:hidden;
           border:1px solid #e5e7eb;
-          animation:vcS .26s cubic-bezier(.34,1.56,.64,1);
+          animation:veyil-aiS .26s cubic-bezier(.34,1.56,.64,1);
           transform-origin:bottom right;
         }
-        @keyframes vcS{
+        @keyframes veyil-aiS{
           from{opacity:0;transform:scale(.88) translateY(14px)}
           to{opacity:1;transform:scale(1) translateY(0)}
         }
 
         /* HEADER */
-        .vc-hdr{
+        .veyil-ai-hdr{
           padding:13px 15px;
           background:linear-gradient(135deg,#0f172a 0%,#1e3a8a 55%,#1d4ed8 100%);
           display:flex;align-items:center;gap:9px;flex-shrink:0;
         }
-        .vc-av{
+        .veyil-ai-av{
           width:37px;height:37px;flex-shrink:0;
           background:rgba(255,255,255,.12);
           border:1px solid rgba(255,255,255,.2);
           border-radius:10px;
           display:flex;align-items:center;justify-content:center;
         }
-        .vc-av svg{width:19px;height:19px;color:#fff}
-        .vc-hi{flex:1;min-width:0}
-        .vc-hn{color:#fff;font-weight:700;font-size:14px;letter-spacing:-.15px}
-        .vc-hs{display:flex;align-items:center;gap:4px;margin-top:1px}
-        .vc-dot{width:6px;height:6px;background:#4ade80;border-radius:50%;animation:vcBl 2s infinite;flex-shrink:0}
-        @keyframes vcBl{0%,100%{opacity:1}50%{opacity:.3}}
-        .vc-htxt{color:rgba(255,255,255,.6);font-size:10.5px;white-space:nowrap}
+        .veyil-ai-av svg{width:19px;height:19px;color:#fff}
+        .veyil-ai-hi{flex:1;min-width:0}
+        .veyil-ai-hn{color:#fff;font-weight:700;font-size:14px;letter-spacing:-.15px}
+        .veyil-ai-hs{display:flex;align-items:center;gap:4px;margin-top:1px}
+        .veyil-ai-dot{width:6px;height:6px;background:#4ade80;border-radius:50%;animation:veyil-aiBl 2s infinite;flex-shrink:0}
+        @keyframes veyil-aiBl{0%,100%{opacity:1}50%{opacity:.3}}
+        .veyil-ai-htxt{color:rgba(255,255,255,.6);font-size:10.5px;white-space:nowrap}
 
         /* Lang */
-        .vc-lang{
+        .veyil-ai-lang{
           display:flex;background:rgba(255,255,255,.1);
           border-radius:7px;overflow:hidden;
           border:1px solid rgba(255,255,255,.15);flex-shrink:0;
         }
-        .vc-lb{
+        .veyil-ai-lb{
           background:none;border:none;cursor:pointer;
           padding:4px 9px;font-size:11px;font-weight:600;
           color:rgba(255,255,255,.55);font-family:inherit;
           transition:background .12s,color .12s;
         }
-        .vc-lb.on{background:rgba(255,255,255,.18);color:#fff}
+        .veyil-ai-lb.on{background:rgba(255,255,255,.18);color:#fff}
 
-        .vc-x{
+        .veyil-ai-x{
           width:28px;height:28px;border-radius:7px;
           background:rgba(255,255,255,.1);border:none;cursor:pointer;
           display:flex;align-items:center;justify-content:center;
           color:#fff;transition:background .12s;flex-shrink:0;
         }
-        .vc-x:hover{background:rgba(255,255,255,.2)}
-        .vc-x svg{width:14px;height:14px}
+        .veyil-ai-x:hover{background:rgba(255,255,255,.2)}
+        .veyil-ai-x svg{width:14px;height:14px}
 
         /* BODY */
-        .vc-body{
+        .veyil-ai-body{
           flex:1;overflow-y:auto;padding:13px;
           background:#f9fafb;
           display:flex;flex-direction:column;gap:10px;
         }
-        .vc-body::-webkit-scrollbar{width:3px}
-        .vc-body::-webkit-scrollbar-thumb{background:#d1d5db;border-radius:3px}
+        .veyil-ai-body::-webkit-scrollbar{width:3px}
+        .veyil-ai-body::-webkit-scrollbar-thumb{background:#d1d5db;border-radius:3px}
 
         /* MESSAGES */
-        .vc-r{display:flex}
-        .vc-r.user{justify-content:flex-end}
-        .vc-r.bot{justify-content:flex-start;align-items:flex-end;gap:5px}
-        .vc-ico{
+        .veyil-ai-r{display:flex}
+        .veyil-ai-r.user{justify-content:flex-end}
+        .veyil-ai-r.bot{justify-content:flex-start;align-items:flex-end;gap:5px}
+        .veyil-ai-ico{
           width:25px;height:25px;flex-shrink:0;
           background:linear-gradient(135deg,#0f172a,#1d4ed8);
           border-radius:50%;
           display:flex;align-items:center;justify-content:center;
         }
-        .vc-ico svg{width:12px;height:12px;color:#fff}
-        .vc-b{
+        .veyil-ai-ico svg{width:12px;height:12px;color:#fff}
+        .veyil-ai-b{
           max-width:80%;padding:9px 12px;border-radius:13px;
           font-size:13.5px;line-height:1.65;
-          animation:vcF .16s ease;
+          animation:veyil-aiF .16s ease;
         }
-        @keyframes vcF{from{opacity:0;transform:translateY(3px)}to{opacity:1;transform:translateY(0)}}
-        .vc-b.bot{
+        @keyframes veyil-aiF{from{opacity:0;transform:translateY(3px)}to{opacity:1;transform:translateY(0)}}
+        .veyil-ai-b.bot{
           background:#fff;border:1px solid #e5e7eb;
           border-bottom-left-radius:3px;color:#111827;
           box-shadow:0 1px 3px rgba(0,0,0,.05);
         }
-        .vc-b.user{
+        .veyil-ai-b.user{
           background:linear-gradient(135deg,#1e3a8a,#1d4ed8);
           color:#fff;border-bottom-right-radius:3px;
         }
-        .vc-b p{margin:0 0 5px}
-        .vc-b p:last-child{margin-bottom:0}
-        .vc-b strong{font-weight:600}
-        .vc-b ul,.vc-b ol{padding-left:15px;margin:3px 0}
-        .vc-b li{margin-bottom:2px}
-        .vc-b blockquote{border-left:3px solid #60a5fa;padding-left:8px;color:#6b7280;font-size:12.5px;margin:4px 0}
-        .vc-b a{color:#1d4ed8;text-decoration:underline}
-        .vc-b.user a{color:#bfdbfe}
-        .vc-b code{background:rgba(99,102,241,.08);padding:1px 5px;border-radius:4px;font-size:12px}
+        .veyil-ai-b p{margin:0 0 5px}
+        .veyil-ai-b p:last-child{margin-bottom:0}
+        .veyil-ai-b strong{font-weight:600}
+        .veyil-ai-b ul,.veyil-ai-b ol{padding-left:15px;margin:3px 0}
+        .veyil-ai-b li{margin-bottom:2px}
+        .veyil-ai-b blockquote{border-left:3px solid #60a5fa;padding-left:8px;color:#6b7280;font-size:12.5px;margin:4px 0}
+        .veyil-ai-b a{color:#1d4ed8;text-decoration:underline}
+        .veyil-ai-b.user a{color:#bfdbfe}
+        .veyil-ai-b code{background:rgba(99,102,241,.08);padding:1px 5px;border-radius:4px;font-size:12px}
 
         /* TYPING */
-        .vc-typ{display:flex;align-items:center;gap:5px}
-        .vc-ds{
+        .veyil-ai-typ{display:flex;align-items:center;gap:5px}
+        .veyil-ai-ds{
           background:#fff;border:1px solid #e5e7eb;
           padding:9px 12px;border-radius:13px;border-bottom-left-radius:3px;
           display:flex;gap:4px;align-items:center;
         }
-        .vc-ds span{
+        .veyil-ai-ds span{
           width:6px;height:6px;background:#9ca3af;
-          border-radius:50%;animation:vcBo 1.1s infinite;
+          border-radius:50%;animation:veyil-aiBo 1.1s infinite;
         }
-        .vc-ds span:nth-child(2){animation-delay:.18s}
-        .vc-ds span:nth-child(3){animation-delay:.36s}
-        @keyframes vcBo{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-5px)}}
+        .veyil-ai-ds span:nth-child(2){animation-delay:.18s}
+        .veyil-ai-ds span:nth-child(3){animation-delay:.36s}
+        @keyframes veyil-aiBo{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-5px)}}
 
         /* QUICK */
-        .vc-q{
+        .veyil-ai-q{
           padding:7px 11px 6px;border-top:1px solid #f3f4f6;
           display:flex;gap:5px;flex-wrap:wrap;
           background:#fff;flex-shrink:0;
         }
-        .vc-qb{
+        .veyil-ai-qb{
           background:#f3f4f6;border:1px solid #e5e7eb;
           border-radius:16px;padding:4px 10px;
           font-size:11.5px;font-family:inherit;
           cursor:pointer;color:#374151;font-weight:500;
           transition:background .11s;white-space:nowrap;
         }
-        .vc-qb:hover{background:#e5e7eb}
-        .vc-wa{
+        .veyil-ai-qb:hover{background:#e5e7eb}
+        .veyil-ai-wa{
           background:linear-gradient(135deg,#16a34a,#15803d);
           border:none;border-radius:16px;padding:4px 10px;
           font-size:11.5px;font-family:inherit;cursor:pointer;
@@ -419,7 +417,7 @@ export default function VeyilChatbot() {
           display:flex;align-items:center;gap:4px;white-space:nowrap;
           transition:opacity .11s;
         }
-        .vc-co {
+        .veyil-ai-co {
           background: linear-gradient(135deg, #059669, #10b981);
           border: none;
           border-radius: 12px;
@@ -436,57 +434,57 @@ export default function VeyilChatbot() {
           transition: all 0.2s ease;
           box-shadow: 0 2px 8px rgba(16, 185, 129, 0.25);
         }
-        .vc-wa:hover{opacity:.88}
-        .vc-wa svg{width:12px;height:12px}
-        .vc-co:hover{opacity:.88}
-        .vc-co svg{width:12px;height:12px}
+        .veyil-ai-wa:hover{opacity:.88}
+        .veyil-ai-wa svg{width:12px;height:12px}
+        .veyil-ai-co:hover{opacity:.88}
+        .veyil-ai-co svg{width:12px;height:12px}
 
         /* INPUT */
-        .vc-ir{
+        .veyil-ai-ir{
           display:flex;align-items:center;
           border-top:1px solid #f3f4f6;background:#fff;
           padding:9px 10px;gap:7px;flex-shrink:0;
         }
-        .vc-inp{
+        .veyil-ai-inp{
           flex:1;border:1.5px solid #e5e7eb;border-radius:10px;
           padding:8px 12px;font-size:13.5px;font-family:inherit;
           color:#111827;background:#f9fafb;outline:none;
           transition:border-color .15s;
         }
-        .vc-inp:focus{border-color:#1d4ed8;background:#fff}
-        .vc-inp::placeholder{color:#9ca3af}
-        .vc-snd{
+        .veyil-ai-inp:focus{border-color:#1d4ed8;background:#fff}
+        .veyil-ai-inp::placeholder{color:#9ca3af}
+        .veyil-ai-snd{
           width:37px;height:37px;
           background:linear-gradient(135deg,#1e3a8a,#1d4ed8);
           border:none;border-radius:9px;cursor:pointer;
           display:flex;align-items:center;justify-content:center;
           flex-shrink:0;transition:opacity .13s,transform .11s;
         }
-        .vc-snd:hover{opacity:.9;transform:scale(1.06)}
-        .vc-snd:disabled{opacity:.38;cursor:not-allowed;transform:none}
-        .vc-snd svg{width:15px;height:15px;color:#fff}
+        .veyil-ai-snd:hover{opacity:.9;transform:scale(1.06)}
+        .veyil-ai-snd:disabled{opacity:.38;cursor:not-allowed;transform:none}
+        .veyil-ai-snd svg{width:15px;height:15px;color:#fff}
 
         /* MOBILE */
         @media(max-width:480px){
-          .vc{bottom:14px;right:14px;left:14px}
-          .vc-win{
+          .veyil-ai{bottom:14px;right:14px;left:14px}
+          .veyil-ai-win{
             width:100%;right:0;left:0;
             height:calc(100dvh - 84px);
             bottom:64px;border-radius:15px;
           }
-          .vc-fab{margin-left:auto}
-          .vc-q{gap:4px}
-          .vc-qb,.vc-wa,.vc-co{font-size:11px;padding:4px 9px}
+          .veyil-ai-fab{margin-left:auto}
+          .veyil-ai-q{gap:4px}
+          .veyil-ai-qb,.veyil-ai-wa,.veyil-ai-co{font-size:11px;padding:4px 9px}
         }
       `}</style>
 
-      <div className="vc" ref={rootRef}>
+      <div className="veyil-ai" ref={rootRef}>
         {open && (
-          <div className="vc-win" role="dialog" aria-label="Veyil AI Chat">
+          <div className="veyil-ai-win" role="dialog" aria-label="Veyil AI Chat">
 
             {/* Header */}
-            <div className="vc-hdr">
-              <div className="vc-av">
+            <div className="veyil-ai-hdr">
+              <div className="veyil-ai-av">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <rect x="3" y="11" width="18" height="11" rx="2"/>
                   <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
@@ -494,21 +492,21 @@ export default function VeyilChatbot() {
                 </svg>
               </div>
 
-              <div className="vc-hi">
-                <div className="vc-hn">Veyil AI</div>
-                <div className="vc-hs">
-                  <span className="vc-dot"/>
-                  <span className="vc-htxt">Online · Veyil Solutions</span>
+              <div className="veyil-ai-hi">
+                <div className="veyil-ai-hn">Veyil AI</div>
+                <div className="veyil-ai-hs">
+                  <span className="veyil-ai-dot"/>
+                  <span className="veyil-ai-htxt">Online · Veyil Solutions</span>
                 </div>
               </div>
 
               {/* Language Toggle */}
-              <div className="vc-lang" role="group" aria-label="Language selector">
-                <button className={`vc-lb ${lang === "en" ? "on" : ""}`} onClick={() => switchLang("en")}>EN</button>
-                <button className={`vc-lb ${lang === "ta" ? "on" : ""}`} onClick={() => switchLang("ta")}>தமிழ்</button>
+              <div className="veyil-ai-lang" role="group" aria-label="Language selector">
+                <button className={`veyil-ai-lb ${lang === "en" ? "on" : ""}`} onClick={() => switchLang("en")}>EN</button>
+                <button className={`veyil-ai-lb ${lang === "ta" ? "on" : ""}`} onClick={() => switchLang("ta")}>தமிழ்</button>
               </div>
 
-              <button className="vc-x" onClick={() => setOpen(false)} aria-label="Close chat">
+              <button className="veyil-ai-x" onClick={() => setOpen(false)} aria-label="Close chat">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                   <path d="M18 6L6 18M6 6l12 12"/>
                 </svg>
@@ -516,47 +514,47 @@ export default function VeyilChatbot() {
             </div>
 
             {/* Messages */}
-            <div className="vc-body" ref={scrollRef}>
+            <div className="veyil-ai-body" ref={scrollRef}>
               {messages.map((m, i) => (
-                <div key={i} className={`vc-r ${m.role}`}>
+                <div key={i} className={`veyil-ai-r ${m.role}`}>
                   {m.role === "bot" && (
-                    <div className="vc-ico">
+                    <div className="veyil-ai-ico">
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <rect x="3" y="11" width="18" height="11" rx="2"/>
                         <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
                       </svg>
                     </div>
                   )}
-                  <div className={`vc-b ${m.role}`}>
+                  <div className={`veyil-ai-b ${m.role}`}>
                     <ReactMarkdown>{m.text}</ReactMarkdown>
                   </div>
                 </div>
               ))}
               {loading && (
-                <div className="vc-typ">
-                  <div className="vc-ico">
+                <div className="veyil-ai-typ">
+                  <div className="veyil-ai-ico">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                       <rect x="3" y="11" width="18" height="11" rx="2"/>
                       <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
                     </svg>
                   </div>
-                  <div className="vc-ds"><span/><span/><span/></div>
+                  <div className="veyil-ai-ds"><span/><span/><span/></div>
                 </div>
               )}
             </div>
 
             {/* Quick Actions */}
-            <div className="vc-q">
+            <div className="veyil-ai-q">
               {QUICK[lang].map((q) => (
-                <button key={q.label} className="vc-qb" onClick={() => sendMessage(q.msg)}>{q.label}</button>
+                <button key={q.label} className="veyil-ai-qb" onClick={() => sendMessage(q.msg)}>{q.label}</button>
               ))}
-              <button className="vc-wa" onClick={() => window.open(WA)}>
+              <button className="veyil-ai-wa" onClick={() => window.open(WA)}>
                 <svg viewBox="0 0 24 24" fill="currentColor">
                   <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
                 </svg>
                 WhatsApp
               </button>
-             <button className="vc-co" onClick={() => window.open(CO)}>
+             <button className="veyil-ai-co" onClick={() => window.open(CO)}>
                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
                  <line x1="12" y1="7" x2="12" y2="13"></line>
@@ -567,10 +565,10 @@ export default function VeyilChatbot() {
             </div>
 
             {/* Input */}
-            <div className="vc-ir">
+            <div className="veyil-ai-ir">
               <input
                 ref={inputRef}
-                className="vc-inp"
+                className="veyil-ai-inp"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && !e.shiftKey && sendMessage()}
@@ -579,7 +577,7 @@ export default function VeyilChatbot() {
                 autoComplete="off"
               />
               <button
-                className="vc-snd"
+                className="veyil-ai-snd"
                 onClick={() => sendMessage()}
                 disabled={loading || !input.trim()}
                 aria-label="Send message"
@@ -595,11 +593,11 @@ export default function VeyilChatbot() {
 
         {/* FAB */}
         <button
-          className={`vc-fab ${open ? "open" : ""}`}
+          className={`veyil-ai-fab ${open ? "open" : ""}`}
           onClick={() => setOpen((o) => !o)}
           aria-label="Open Veyil AI chat"
         >
-          {hasNew && !open && <span className="vc-badge"/>}
+          {hasNew && !open && <span className="veyil-ai-badge"/>}
           {open ? (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
               <path d="M18 6L6 18M6 6l12 12"/>

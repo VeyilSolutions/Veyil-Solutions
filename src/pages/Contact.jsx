@@ -170,8 +170,6 @@ function Contact() {
 
   return (
     <main className="contact-wrapper">
-
-      {/* Fixed toast layer — outside grid so it never affects layout */}
       <Toast toasts={toasts} />
 
       <div className="contact-grid">

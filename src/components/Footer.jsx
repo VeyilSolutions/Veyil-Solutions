@@ -12,7 +12,6 @@ import {
 } from "lucide-react";
 import SocialIcons from "./SocialIcons";
 
-// Custom WhatsApp SVG Icon 
 const WhatsAppIcon = ({ className }) => (
   <svg 
     viewBox="0 0 24 24" 

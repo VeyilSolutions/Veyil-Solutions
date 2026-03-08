@@ -6,8 +6,7 @@ function SocialIcons() {
 
   return (
     <div className="flex items-center gap-6 text-2xl">
-      
-      {/* Hidden SVG Gradient Definition */}
+
       <svg width="0" height="0">
         <linearGradient id="instagramGradient" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" stopColor="#feda75" />

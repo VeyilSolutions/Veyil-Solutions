@@ -14,11 +14,7 @@ export default function Hero() {
   };
 
   return (
-    /* STRICT FIXES:
-       - overflow-x-hidden: Prevents the horizontal swipe.
-       - max-w-full: Ensures the section never grows wider than the phone screen.
-       - pt-28: Fixed space for your Navbar.
-    */
+   
     <header className="relative min-h-screen w-full max-w-full flex items-center justify-center bg-white overflow-x-hidden px-4 pt-28 sm:pt-0">
       
       {/* ===== BACKGROUND DECORATION ===== */}
@@ -26,9 +22,6 @@ export default function Hero() {
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 0.3, scale: 1 }}
         transition={{ duration: 1.5 }}
-        /* FIX: Using left-0 and w-full ensures the blur stays inside the container 
-           without pushing the right edge.
-        */
         className="absolute -top-[5%] left-0 w-full h-[50vh] blur-[60px] sm:blur-[100px] rounded-full bg-gradient-to-br from-indigo-500/20 via-teal-400/10 to-blue-500/20 pointer-events-none z-0"
       />
 
@@ -37,7 +30,6 @@ export default function Hero() {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.2, delay: 0.2 }}
-        /* FIX: w-[100%] + absolute left-0 prevents the SVG from overshooting */
         className="absolute bottom-0 left-0 w-full leading-[0] pointer-events-none z-0"
       >
         <svg
@@ -66,7 +58,6 @@ export default function Hero() {
         variants={{
           show: { transition: { staggerChildren: 0.1 } },
         }}
-        /* FIX: w-full and max-w-full here is critical */
         className="relative z-10 w-full max-w-full text-center mx-auto"
       >
         <motion.div
@@ -78,7 +69,6 @@ export default function Hero() {
 
         <motion.h1
           variants={fadeUp}
-          /* FIX: Leading tight prevents extra vertical space that can sometimes bug out mobile layout */
           className="text-4xl sm:text-7xl md:text-8xl font-extrabold text-black leading-tight sm:leading-[1] tracking-tight mb-6"
         >
           We Build the Vision.
@@ -95,9 +85,6 @@ export default function Hero() {
           See your finished store before you commit to the project.
         </motion.p>
 
-        {/* FIX: Completely removed the horizontal lines on mobile 
-           as they are the #1 cause of horizontal scroll bugs. 
-        */}
         <motion.div
           variants={fadeUp}
           className="flex items-center justify-center w-full"

@@ -39,15 +39,11 @@ export default function CleanPhysicsTestimonials() {
     const offsetY = info.offset.y
     const threshold = 120
 
-    // Determine dominant swipe direction
     if (Math.abs(offsetX) > Math.abs(offsetY)) {
-      // Horizontal swipe
       if (offsetX < -threshold) {
-        // LEFT → next
         setDirection({ x: 100, y: 0 })
         setIndex((prev) => (prev + 1) % testimonials.length)
       } else if (offsetX > threshold) {
-        // RIGHT → previous
         setDirection({ x: -100, y: 0 })
         setIndex((prev) =>
           (prev - 1 + testimonials.length) % testimonials.length
@@ -56,13 +52,10 @@ export default function CleanPhysicsTestimonials() {
         resetPosition()
       }
     } else {
-      // Vertical swipe
       if (offsetY < -threshold) {
-        // UP → next
         setDirection({ x: 0, y: 100 })
         setIndex((prev) => (prev + 1) % testimonials.length)
       } else if (offsetY > threshold) {
-        // DOWN → previous
         setDirection({ x: 0, y: -100 })
         setIndex((prev) =>
           (prev - 1 + testimonials.length) % testimonials.length
@@ -100,7 +93,6 @@ export default function CleanPhysicsTestimonials() {
           </p>
         </div>
 
-        {/* Card Area */}
         <div className="relative flex justify-center items-center h-[420px]">
           <AnimatePresence mode="wait">
             <motion.div
@@ -123,7 +115,7 @@ export default function CleanPhysicsTestimonials() {
                 shadow-[0_25px_60px_rgba(0,0,0,0.08)]
               "
             >
-              {/* Company Logo */}
+              {/* Logo */}
               <div className="mb-6 bg-gray-100 px-4 py-2 rounded-full flex items-center gap-2 shadow-sm">
                 <img
                   src={current.logo}

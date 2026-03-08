@@ -47,7 +47,6 @@ function App() {
 
   const [loading, setLoading] = useState(false);
 
-  /* Remove initial HTML loader */
   useEffect(() => {
     const htmlLoader = document.getElementById("initial-loader");
     if (htmlLoader) {
@@ -57,7 +56,7 @@ function App() {
     }
   }, []);
 
-  /* AOS Init */
+
   useEffect(() => {
     if (!aosInitialized.current) {
       AOS.init({
@@ -71,26 +70,21 @@ function App() {
     }
   }, [location.pathname]);
 
-  /* 🔥 ROUTE LOADER SYSTEM */
+
   useEffect(() => {
-    // 🚫 Skip loader on very first load
+
     if (isFirstLoad.current) {
       isFirstLoad.current = false;
       return;
     }
 
-    // Show loader immediately on navigation
     setLoading(true);
-
-    // If navigating TO Home → no delay
     if (location.pathname === "/") {
       requestAnimationFrame(() => {
         setLoading(false);
       });
       return;
     }
-
-    // Other pages → 1800ms delay
     const timer = setTimeout(() => {
       setLoading(false);
     }, 1800);
@@ -98,8 +92,6 @@ function App() {
     return () => clearTimeout(timer);
 
   }, [location.pathname]);
-
-  /* 🔥 BLOCK PAGE RENDER WHILE LOADING */
   if (loading) {
     return <Loader visible={true} />;
   }

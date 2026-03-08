@@ -58,8 +58,6 @@ function AccordionItem({ service, isActive, onInteraction }) {
       />
 
       <div className={`absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent transition-opacity duration-500 ${isActive ? 'opacity-100' : 'opacity-60'}`} />
-
-      {/* MOBILE ONLY CONTENT: Description and Button appears inside the active card */}
       <div className={`absolute inset-0 p-6 flex flex-col justify-end sm:hidden transition-opacity duration-300 ${isActive ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
         <h3 className="text-white text-2xl font-bold mb-2">{service.title}</h3>
         <p className="text-white/80 text-sm mb-4 line-clamp-3">{service.description}</p>
@@ -70,14 +68,14 @@ function AccordionItem({ service, isActive, onInteraction }) {
         </Link>
       </div>
 
-      {/* MOBILE COLLAPSED TITLE */}
+      {/* MOBILE */}
       {!isActive && (
         <span className="absolute left-6 top-1/2 -translate-y-1/2 text-white font-bold text-lg sm:hidden">
           {service.title}
         </span>
       )}
 
-      {/* DESKTOP TITLES (Original Logic) */}
+      {/* DESKTOP TITLES */}
       <span
         className={`
           hidden sm:block absolute text-white font-bold whitespace-nowrap
@@ -118,8 +116,6 @@ export default function Services() {
         </div>
 
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-start lg:items-center">
-          
-          {/* LEFT CONTENT (Visible on Desktop only to avoid redundancy on Mobile) */}
           <div className="hidden sm:flex w-full lg:w-1/2 min-h-[350px] flex-col justify-center">
             <AnimatePresence mode="wait">
               <motion.div
@@ -144,8 +140,6 @@ export default function Services() {
               </motion.div>
             </AnimatePresence>
           </div>
-
-          {/* RIGHT ACCORDION / MOBILE STACK */}
           <div className="w-full lg:w-1/2 flex justify-center lg:justify-end">
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full max-w-[500px] lg:max-w-none">
               {services.map((service, index) => (
