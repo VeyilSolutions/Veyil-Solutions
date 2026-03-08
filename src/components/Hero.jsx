@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-export default function HeroGeometric() {
+export default function Hero() {
   const fadeUp = {
     hidden: { opacity: 0, y: 20 },
     show: {

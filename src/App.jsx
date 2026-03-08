@@ -118,9 +118,9 @@ function App() {
           <Route path="/work-process" element={<WorkProcess />} />
           <Route path="/cookie-policy" element={<CookiePolicy />} />
 
-          <Route path="/services/ShopifyE-CommerceDevelopment" element={<WebDevelopment />} />
-          <Route path="/services/BusinessWebsiteDevelopment" element={<MobileAppDevelopment />} />
-          <Route path="/services/DesignServices" element={<WebDesign />} />
+          <Route path="/services/e-commercedevelopment" element={<WebDevelopment />} />
+          <Route path="/services/businesswebsitedevelopment" element={<MobileAppDevelopment />} />
+          <Route path="/services/designservices" element={<WebDesign />} />
 
           <Route path="/faq" element={<Faq />} />
           <Route path="/price" element={<Price />} />

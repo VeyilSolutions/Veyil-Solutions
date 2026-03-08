@@ -102,19 +102,19 @@ function Footer() {
           </h4>
           <ul className="space-y-4 text-sm">
             <li>
-              <Link to="/services/shopify-ecommerce" className="flex items-center gap-3 text-slate-400 hover:text-white transition group">
+              <Link to="/services/e-commercedevelopment" className="flex items-center gap-3 text-slate-400 hover:text-white transition group">
                 <ShoppingBag className="w-4 h-4 text-teal group-hover:text-white" />
                 E-commerce Development
               </Link>
             </li>
             <li>
-              <Link to="/services/business-website" className="flex items-center gap-3 text-slate-400 hover:text-white transition group">
+              <Link to="/services/businesswebsitedevelopment" className="flex items-center gap-3 text-slate-400 hover:text-white transition group">
                 <Globe className="w-4 h-4 text-teal group-hover:text-white" />
                 Business Website Development
               </Link>
             </li>
             <li>
-              <Link to="/services/design-services" className="flex items-center gap-3 text-slate-400 hover:text-white transition group">
+              <Link to="/services/designservices" className="flex items-center gap-3 text-slate-400 hover:text-white transition group">
                 <Palette className="w-4 h-4 text-teal group-hover:text-white" />
                 Design Services
               </Link>

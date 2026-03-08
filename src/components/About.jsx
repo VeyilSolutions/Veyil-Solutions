@@ -16,7 +16,7 @@ import {
 } from "lucide-react";
 import lottie from "lottie-web";
 
-export default function AboutProcessIndustries() {
+export default function About() {
   const lottieRef = useRef(null);
   const animationRef = useRef(null);
 

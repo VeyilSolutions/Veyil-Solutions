@@ -10,19 +10,19 @@ import Webdesign from "../assets/web_design.webp";
 
 const services = [
   {
-    id: "ShopifyE-CommerceDevelopment",
+    id: "e-commercedevelopment",
     title: "E-commerce Development",
     description: "We build high-performance online stores designed to convert visitors into customers and scale your business effortlessly.",
     image: Webdev,
   },
   {
-    id: "BusinessWebsiteDevelopment",
+    id: "businesswebsitedevelopment",
     title: "Business Website Development",
     description: "Custom-built professional sites designed to showcase your services, build brand authority, and capture high-quality leads.",
     image: Webdesign,
   },
   {
-    id: "DesignServices",
+    id: "designservices",
     title: "Creative Design Services",
     description: "High-impact visuals and custom branding designed to make your business stand out and capture your audience’s attention.",
     image: Mobile,
@@ -94,7 +94,7 @@ function AccordionItem({ service, isActive, onInteraction }) {
   );
 }
 
-export default function InteractiveServices() {
+export default function Services() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
