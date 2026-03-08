@@ -1,6 +1,6 @@
-import ServiceHero from "../../components/ServiceHero";
-import ServiceFeatures from "../../components/ServiceFeatures";
-import CreativeDesignImg from "../../assets/mobile.webp";
+import ServiceHero from "@/components/ServiceHero";
+import ServiceFeatures from "@/components/ServiceFeatures";
+import CreativeDesignImg from "@/assets/mobile.webp";
 
 import {
   Sparkles,

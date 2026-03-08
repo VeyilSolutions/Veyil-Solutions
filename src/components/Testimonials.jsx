@@ -8,8 +8,8 @@ import {
 } from "framer-motion"
 import { Globe } from "lucide-react"
 
-import prasanaImg from "../assets/C1.jpeg"
-import leaderLogo from "../assets/L1.png"
+import prasanaImg from "@/assets/C1.jpeg"
+import leaderLogo from "@/assets/L1.png"
 
 const testimonials = [
   {

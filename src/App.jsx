@@ -3,24 +3,28 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import Loader from "./components/Loader";
-import NotFoundPage from "./components/NotFoundPage";
-import VeyilChatbot from "./components/VeyilChatbot";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import Loader from "@/components/Loader";
+import NotFoundPage from "@/components/NotFoundPage";
+import VeyilChatbot from "@/components/VeyilChatbot";
 
-import Home from "./pages/Home";
-import Contact from "./pages/Contact";
-import PrivacyPolicy from "./pages/policies/PrivacyPolicy";
-import TermsConditions from "./pages/policies/TermsConditions";
-import WorkProcess from "./pages/policies/WorkProcess";
-import CookiePolicy from "./pages/policies/CookiePolicy";
-import Faq from "./pages/faq";
-import Price from "./pages/price";
+import Home from "@/pages/Home";
+import Contact from "@/pages/Contact";
+import PrivacyPolicy from "@/pages/policies/PrivacyPolicy";
+import TermsConditions from "@/pages/policies/TermsConditions";
+import WorkProcess from "@/pages/policies/WorkProcess";
+import CookiePolicy from "@/pages/policies/CookiePolicy";
+import Faq from "@/pages/faq";
+import Price from "@/pages/price";
 
-import WebDevelopment from "./pages/services/WebDevelopment";
-import MobileAppDevelopment from "./pages/services/MobileAppDevelopment";
-import WebDesign from "./pages/services/WebDesign";
+import WebDevelopment from "@/pages/services/WebDevelopment";
+import MobileAppDevelopment from "@/pages/services/MobileAppDevelopment";
+import WebDesign from "@/pages/services/WebDesign";
+
+/* BLOG PAGES */
+import Blogs from "@/pages/Blogs/Blogs";
+import BlogDetails from "@/pages/Blogs/BlogDetails";
 
 /* Scroll To Top */
 function ScrollToTop() {
@@ -44,9 +48,9 @@ function App() {
   const location = useLocation();
   const aosInitialized = useRef(false);
   const isFirstLoad = useRef(true);
-
   const [loading, setLoading] = useState(false);
 
+  // Initial HTML Loader removal
   useEffect(() => {
     const htmlLoader = document.getElementById("initial-loader");
     if (htmlLoader) {
@@ -56,7 +60,7 @@ function App() {
     }
   }, []);
 
-
+  // AOS Initialization
   useEffect(() => {
     if (!aosInitialized.current) {
       AOS.init({
@@ -70,59 +74,76 @@ function App() {
     }
   }, [location.pathname]);
 
-
+  // Page Transition Loader Logic
   useEffect(() => {
-
+    // 1. Handle first site visit
     if (isFirstLoad.current) {
       isFirstLoad.current = false;
-      return;
+      // If landing on home, don't show the 1.8s delay
+      if (location.pathname === "/") return;
     }
 
+    // 2. Start Loading
     setLoading(true);
+
+    // 3. Different timing for Home vs other pages
+    let delay = 1800;
     if (location.pathname === "/") {
-      requestAnimationFrame(() => {
-        setLoading(false);
-      });
-      return;
+        delay = 100; // Fast clear for home
     }
+
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 1800);
+    }, delay);
 
     return () => clearTimeout(timer);
-
   }, [location.pathname]);
-  if (loading) {
-    return <Loader visible={true} />;
-  }
 
   return (
     <div className="bg-white text-slate-800 font-baloo min-h-screen flex flex-col">
       <ScrollToTop />
-      <Navbar />
 
-      <div className="flex-grow">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-          <Route path="/terms-and-conditions" element={<TermsConditions />} />
-          <Route path="/work-process" element={<WorkProcess />} />
-          <Route path="/cookie-policy" element={<CookiePolicy />} />
+      {/* LOADER OVERLAY: Keep visible based on state */}
+      {loading && <Loader visible={true} />}
 
-          <Route path="/services/e-commercedevelopment" element={<WebDevelopment />} />
-          <Route path="/services/businesswebsitedevelopment" element={<MobileAppDevelopment />} />
-          <Route path="/services/designservices" element={<WebDesign />} />
+      {/* Main Content: We use a wrapper to hide/show without unmounting the whole app */}
+      <div className={`flex flex-col flex-grow ${loading ? "invisible h-0 overflow-hidden" : "visible"}`}>
+        
+        <Navbar />
 
-          <Route path="/faq" element={<Faq />} />
-          <Route path="/price" element={<Price />} />
+        <div className="flex-grow">
+          <Routes>
+            {/* MAIN */}
+            <Route path="/" element={<Home />} />
+            <Route path="/contact" element={<Contact />} />
 
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
+            {/* BLOG */}
+            <Route path="/blogs" element={<Blogs />} />
+            <Route path="/blog/:slug" element={<BlogDetails />} />
+
+            {/* POLICIES */}
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/terms-and-conditions" element={<TermsConditions />} />
+            <Route path="/work-process" element={<WorkProcess />} />
+            <Route path="/cookie-policy" element={<CookiePolicy />} />
+
+            {/* SERVICES */}
+            <Route path="/services/e-commercedevelopment" element={<WebDevelopment />} />
+            <Route path="/services/businesswebsitedevelopment" element={<MobileAppDevelopment />} />
+            <Route path="/services/designservices" element={<WebDesign />} />
+
+            {/* OTHER */}
+            <Route path="/faq" element={<Faq />} />
+            <Route path="/price" element={<Price />} />
+
+            {/* 404 */}
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+        </div>
+
+        <Footer />
+        <VeyilChatbot />
       </div>
-
-      <Footer />
-      <VeyilChatbot />
     </div>
   );
 }

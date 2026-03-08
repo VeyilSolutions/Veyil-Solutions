@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import { useLocation } from "react-router-dom";
-import "../styles/form.css";
+import "@/styles/form.css";
 
 const FORMSPREE_URL = "https://formspree.io/f/mykdqvzz";
 const RULES = { nameMin: 3, mobileLength: 10, messageMin: 10 };

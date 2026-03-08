@@ -4,9 +4,9 @@ import { ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 /* ================= IMAGE IMPORTS ================= */
-import Webdev from "../assets/web_develop.webp";
-import Mobile from "../assets/mobile.webp";
-import Webdesign from "../assets/web_design.webp";
+import Webdev from "@/assets/web_develop.webp";
+import Mobile from "@/assets/mobile.webp";
+import Webdesign from "@/assets/web_design.webp";
 
 const services = [
   {

@@ -1,5 +1,5 @@
-import ServiceHero from "../../components/ServiceHero";
-import ServiceFeatures from "../../components/ServiceFeatures";
+import ServiceHero from "@/components/ServiceHero";
+import ServiceFeatures from "@/components/ServiceFeatures";
 import {
   ShoppingBag,
   CreditCard,
@@ -14,7 +14,7 @@ import {
   Globe,
   TrendingUp,
 } from "lucide-react";
-import ShopifyImg from "../../assets/web_develop.webp";
+import ShopifyImg from "@/assets/web_develop.webp";
 
 export default function ShopifyDevelopment() {
   return (

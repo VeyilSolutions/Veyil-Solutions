@@ -10,7 +10,7 @@ import {
   Globe,
   Palette
 } from "lucide-react";
-import SocialIcons from "./SocialIcons";
+import SocialIcons from "@/components/SocialIcons";
 
 const WhatsAppIcon = ({ className }) => (
   <svg 

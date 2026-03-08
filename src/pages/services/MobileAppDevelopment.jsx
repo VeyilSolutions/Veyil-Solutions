@@ -1,6 +1,6 @@
-import ServiceHero from "../../components/ServiceHero";
-import ServiceFeatures from "../../components/ServiceFeatures";
-import BusinessWebImg from "../../assets/web_design.webp";
+import ServiceHero from "@/components/ServiceHero";
+import ServiceFeatures from "@/components/ServiceFeatures";
+import BusinessWebImg from "@/assets/web_design.webp";
 
 import {
   Globe,
