@@ -80,10 +80,16 @@ export default function Blog({ variant = "home", limit }) {
           <div className="mt-16 text-center">
             <Link
               to="/blogs"
-              className="group relative inline-flex items-center gap-4 border border-black px-10 py-4 text-base font-bold uppercase tracking-widest text-black transition-all duration-300 hover:bg-black hover:text-white dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-black"
+              className="group relative inline-flex items-center gap-3 overflow-hidden border-2 border-black px-10 py-4 text-base font-black uppercase tracking-widest text-black transition-colors duration-300 hover:text-white dark:border-white dark:text-white dark:hover:text-black"
             >
-              View All Articles
-              <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-2" />
+              <span className="relative z-10 flex items-center gap-3">
+                Explore All Stories
+                <ArrowRight 
+                  size={20} 
+                  className="transition-transform duration-300 group-hover:translate-x-2" 
+                />
+              </span>
+              <span className="absolute inset-0 z-0 translate-y-full bg-black transition-transform duration-300 ease-out group-hover:translate-y-0 dark:bg-white" />
             </Link>
           </div>
         )}
