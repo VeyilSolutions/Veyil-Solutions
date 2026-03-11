@@ -14,18 +14,16 @@ export default function Hero() {
   };
 
   return (
-   
-    <header className="relative min-h-screen w-full max-w-full flex items-center justify-center bg-white overflow-x-hidden px-4 pt-28 sm:pt-0">
+    /* Fixed: Using h-auto + specific padding for mobile, h-screen for desktop */
+    <header className="relative h-auto sm:h-screen w-full flex items-center justify-center bg-white overflow-hidden px-6 pt-32 pb-24 sm:py-0">
       
-      {/* ===== BACKGROUND DECORATION ===== */}
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 0.3, scale: 1 }}
         transition={{ duration: 1.5 }}
-        className="absolute -top-[5%] left-0 w-full h-[50vh] blur-[60px] sm:blur-[100px] rounded-full bg-gradient-to-br from-indigo-500/20 via-teal-400/10 to-blue-500/20 pointer-events-none z-0"
+        className="absolute -top-[10%] left-0 w-full h-[40vh] sm:h-[50vh] blur-[60px] sm:blur-[100px] rounded-full bg-gradient-to-br from-indigo-500/20 via-teal-400/10 to-blue-500/20 pointer-events-none z-0"
       />
 
-      {/* ===== BOTTOM WAVE SHAPE ===== */}
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
@@ -34,7 +32,8 @@ export default function Hero() {
       >
         <svg
           viewBox="0 0 1440 320"
-          className="w-full h-[80px] sm:h-auto opacity-30"
+          /* Fixed: Increased height to h-[120px] on mobile to make the wave prominent */
+          className="w-full h-[120px] sm:h-auto opacity-30"
           preserveAspectRatio="none"
         >
           <path
@@ -51,25 +50,24 @@ export default function Hero() {
         </svg>
       </motion.div>
 
-      {/* ===== CONTENT ===== */}
       <motion.div
         initial="hidden"
         animate="show"
         variants={{
           show: { transition: { staggerChildren: 0.1 } },
         }}
-        className="relative z-10 w-full max-w-full text-center mx-auto"
+        className="relative z-10 w-full max-w-6xl text-center mx-auto"
       >
         <motion.div
           variants={fadeUp}
-          className="text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.6em] text-black/50 mb-6 font-bold"
+          className="text-[10px] sm:text-xs uppercase tracking-[0.3em] sm:tracking-[0.6em] text-black/50 mb-4 sm:mb-6 font-bold"
         >
           Veyil Solutions — Shopify Experts
         </motion.div>
 
         <motion.h1
           variants={fadeUp}
-          className="text-4xl sm:text-7xl md:text-8xl font-extrabold text-black leading-tight sm:leading-[1] tracking-tight mb-6"
+          className="text-4xl sm:text-7xl md:text-8xl font-extrabold text-black leading-[1.1] sm:leading-[1] tracking-tight mb-4 sm:mb-6"
         >
           We Build the Vision.
           <span className="block text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-teal-500">
@@ -79,10 +77,10 @@ export default function Hero() {
 
         <motion.p
           variants={fadeUp}
-          className="text-sm sm:text-lg md:text-xl text-black/60 max-w-2xl mx-auto leading-relaxed mb-10 px-4"
+          className="text-base sm:text-lg md:text-xl text-black/60 max-w-2xl mx-auto leading-relaxed mb-10"
         >
           We engineer high-converting Shopify experiences for ambitious brands. 
-          See your finished store before you commit to the project.
+          See your finished store before you commit.
         </motion.p>
 
         <motion.div
@@ -91,7 +89,7 @@ export default function Hero() {
         >
           <div className="flex items-center gap-4">
             <div className="hidden sm:block w-12 h-[1px] bg-black/20" />
-            <span className="text-[10px] sm:text-[12px] uppercase tracking-[0.15em] sm:tracking-[0.3em] text-black/40 font-bold whitespace-nowrap">
+            <span className="text-[10px] sm:text-[12px] uppercase tracking-[0.2em] sm:tracking-[0.3em] text-black/40 font-bold whitespace-nowrap">
               Build • Launch • Scale
             </span>
             <div className="hidden sm:block w-12 h-[1px] bg-black/20" />
