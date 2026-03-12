@@ -14,7 +14,6 @@ export default function Hero() {
   };
 
   return (
-    /* Fixed: Using h-auto + specific padding for mobile, h-screen for desktop */
     <header className="relative h-auto sm:h-screen w-full flex items-center justify-center bg-white overflow-hidden px-6 pt-32 pb-24 sm:py-0">
       
       <motion.div
