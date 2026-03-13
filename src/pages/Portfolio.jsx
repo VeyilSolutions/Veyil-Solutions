@@ -15,7 +15,7 @@ const projects = {
   business: [
     {
       name: "Path Finder Event Management",
-      website: "example.com",
+      website: "https://path-finder-mu-three.vercel.app/",
       description:
         "Professional business website designed for an event management company to showcase services, past events, and generate client inquiries.",
     },
