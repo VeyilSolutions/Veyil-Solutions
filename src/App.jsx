@@ -134,7 +134,7 @@ function App() {
 
             {/* OTHER */}
             <Route path="/faq" element={<Faq />} />
-            <Route path="/price" element={<price />} />
+            <Route path="/price" element={<Price />} />
 
             {/* 404 */}
             <Route path="*" element={<NotFoundPage />} />
