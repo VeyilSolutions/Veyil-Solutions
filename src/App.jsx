@@ -16,7 +16,7 @@ import TermsConditions from "@/pages/policies/TermsConditions";
 import WorkProcess from "@/pages/policies/WorkProcess";
 import CookiePolicy from "@/pages/policies/CookiePolicy";
 import Faq from "@/pages/faq";
-import Price from "@/pages/Price";
+import Price from "@/pages/price";
 import Portfolio from "@/pages/Portfolio";
 
 import WebDevelopment from "@/pages/services/WebDevelopment";
@@ -134,7 +134,7 @@ function App() {
 
             {/* OTHER */}
             <Route path="/faq" element={<Faq />} />
-            <Route path="/Price" element={<Price />} />
+            <Route path="/price" element={<price />} />
 
             {/* 404 */}
             <Route path="*" element={<NotFoundPage />} />
