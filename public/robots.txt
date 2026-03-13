@@ -1,4 +1,20 @@
+```
 User-agent: *
+
+# Allow main website
 Allow: /
 
+# Block system or unnecessary files
+Disallow: /node_modules/
+Disallow: /.git/
+Disallow: /dist/
+Disallow: /build/
+Disallow: /src/
+
+# Allow important assets
+Allow: /img/
+Allow: /assets/
+
+# Sitemap location
 Sitemap: https://www.veyilsolutions.in/sitemap.xml
+```

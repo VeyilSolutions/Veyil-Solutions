@@ -1,0 +1,29 @@
+/* TEAM */
+Company: Veyil Solutions
+Founder: Veyil Solutions Team
+Location: Salem, Tamil Nadu, India
+Website: https://www.veyilsolutions.in
+
+/* SERVICES */
+Shopify Store Setup
+Ecommerce Website Development
+Business Website Development
+Website Design Services
+Shopify Store Migration
+
+/* TECHNOLOGY */
+Frontend: React.js
+Framework: Vite
+Styling: Tailwind CSS
+Animation: Framer Motion
+Hosting: Vercel 
+
+/* CONTACT */
+Email: veyilsolutions@gmail.com
+Website: https://www.veyilsolutions.in/contact
+
+/* SOCIAL */
+Instagram: https://www.instagram.com/veyil_solutions/
+LinkedIn: https://www.linkedin.com/in/veyil-solutions-75868a3a5
+Github: https://github.com/VeyilSolutions
+Facebook: https://www.facebook.com/profile.php?id=61587743683069
