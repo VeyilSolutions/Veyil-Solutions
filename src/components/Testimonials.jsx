@@ -20,7 +20,7 @@ const testimonials = [
     logo: leaderLogo,
     link: "https://leaderclothings.in",
     description:
-      "Excellent web development—clean, responsive, and professional.",
+      "Excellent web development experience. The website design is clean, modern, and fully responsive across devices. The development process was smooth and professional, and the final result perfectly represents our brand online.",
   },
 ]
 

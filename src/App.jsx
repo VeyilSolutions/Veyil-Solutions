@@ -16,7 +16,8 @@ import TermsConditions from "@/pages/policies/TermsConditions";
 import WorkProcess from "@/pages/policies/WorkProcess";
 import CookiePolicy from "@/pages/policies/CookiePolicy";
 import Faq from "@/pages/faq";
-import Price from "@/pages/price";
+import Price from "@/pages/Price";
+import Portfolio from "@/pages/Portfolio";
 
 import WebDevelopment from "@/pages/services/WebDevelopment";
 import MobileAppDevelopment from "@/pages/services/MobileAppDevelopment";
@@ -125,13 +126,15 @@ function App() {
             <Route path="/cookie-policy" element={<CookiePolicy />} />
 
             {/* SERVICES */}
-            <Route path="/services/e-commercedevelopment" element={<WebDevelopment />} />
-            <Route path="/services/businesswebsitedevelopment" element={<MobileAppDevelopment />} />
-            <Route path="/services/designservices" element={<WebDesign />} />
+            <Route path="/services/ecommerce-development" element={<WebDevelopment />} />
+            <Route path="/services/business-website-development" element={<MobileAppDevelopment />} />
+            <Route path="/services/ddesign-services" element={<WebDesign />} />
+
+            <Route path="/portfolio" element={<Portfolio />} />
 
             {/* OTHER */}
             <Route path="/faq" element={<Faq />} />
-            <Route path="/price" element={<Price />} />
+            <Route path="/Price" element={<Price />} />
 
             {/* 404 */}
             <Route path="*" element={<NotFoundPage />} />

@@ -2,7 +2,7 @@ import About from "@/components/About";
 import Testimonials from "@/components/Testimonials";
 import Services from "@/components/Services";
 import Hero from "@/components/Hero";
-import ServiceCTA from "@/components/ServiceCTA";
+import CTA from "@/components/CTA";
 import BlogSection from "@/components/Blog";
 
 export default function Home() {
@@ -13,7 +13,7 @@ export default function Home() {
       <About />
       <Testimonials />
       <BlogSection variant="home" limit={3} />
-      <ServiceCTA />
+      <CTA />
     </main>
   );
 }

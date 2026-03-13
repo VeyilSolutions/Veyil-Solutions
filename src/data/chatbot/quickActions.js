@@ -17,8 +17,12 @@ export const QUICK = {
       msg: "Tell me about the growth store package",
     },
     {
+      label: "🌐 Business Website",
+      msg: "Tell me about the business website development plan",
+    },
+    {
       label: "⏱ Delivery Time",
-      msg: "How long does it take to build the store?",
+      msg: "How long does it take to build the website?",
     },
     {
       label: "💳 Shopify Cost",
@@ -44,8 +48,12 @@ export const QUICK = {
       msg: "growth store package பற்றி சொல்லுங்கள்",
     },
     {
+      label: "🌐 Business Website",
+      msg: "business website development plan பற்றி சொல்லுங்கள்",
+    },
+    {
       label: "⏱ Delivery நேரம்",
-      msg: "store உருவாக்க எத்தனை நாட்கள் ஆகும்?",
+      msg: "website உருவாக்க எத்தனை நாட்கள் ஆகும்?",
     },
     {
       label: "💳 Shopify கட்டணம்",

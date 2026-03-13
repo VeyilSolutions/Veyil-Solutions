@@ -44,6 +44,15 @@ return (
 );
 }
 
+/* ================= TABLE OF CONTENTS ================= */
+
+const headings = blog.content
+.filter((block) => block.type === "heading")
+.map((block) => ({
+id: block.text.toLowerCase().replace(/\s+/g, "-"),
+text: block.text
+}));
+
 return (
 
 <>
@@ -62,34 +71,46 @@ style={{ width: `${scrollProgress}%` }}
 
 <meta name="description" content={blog.description} />
 
-<meta name="keywords" content={blog.keywords.join(",")} />
+<link
+rel="canonical"
+href={`https://www.veyilsolutions.in/blogs/${blog.slug}`}
+/>
 
 <meta property="og:title" content={blog.title} />
 <meta property="og:description" content={blog.description} />
 <meta property="og:image" content={blog.image} />
 <meta property="og:type" content="article" />
+<meta property="og:url" content={`https://www.veyilsolutions.in/blogs/${blog.slug}`} />
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={blog.title} />
 <meta name="twitter:description" content={blog.description} />
 <meta name="twitter:image" content={blog.image} />
 
+<meta property="article:published_time" content={blog.publishDate} />
+
+{/* Blog Schema */}
 <script type="application/ld+json">
 {JSON.stringify({
 "@context": "https://schema.org",
 "@type": "BlogPosting",
 "headline": blog.title,
+"description": blog.description,
 "image": blog.image,
+"url": `https://www.veyilsolutions.in/blogs/${blog.slug}`,
+"datePublished": blog.publishDate,
 "author": {
 "@type": "Organization",
 "name": "Veyil Solutions"
 },
 "publisher": {
 "@type": "Organization",
-"name": "Veyil Solutions"
-},
-"datePublished": blog.publishDate,
-"description": blog.description
+"name": "Veyil Solutions",
+"logo": {
+"@type": "ImageObject",
+"url": "https://www.veyilsolutions.in/img/Veyil_Solutions.png"
+}
+}
 })}
 </script>
 
@@ -100,16 +121,20 @@ style={{ width: `${scrollProgress}%` }}
 
 <button
 onClick={() =>
-window.open(`https://twitter.com/intent/tweet?url=${window.location.href}`)
+window.open(
+`https://twitter.com/intent/tweet?text=${blog.title}&url=${window.location.href}`
+)
 }
-className="rounded-full bg-black p-3 text-white transition hover:scale-110 "
+className="rounded-full bg-black p-3 text-white transition hover:scale-110"
 >
 <FaXTwitter />
 </button>
 
 <button
 onClick={() =>
-window.open(`https://www.facebook.com/sharer/sharer.php?u=${window.location.href}`)
+window.open(
+`https://www.facebook.com/sharer/sharer.php?u=${window.location.href}`
+)
 }
 className="rounded-full bg-blue-600 p-3 text-white transition hover:scale-110"
 >
@@ -118,7 +143,9 @@ className="rounded-full bg-blue-600 p-3 text-white transition hover:scale-110"
 
 <button
 onClick={() =>
-window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${window.location.href}`)
+window.open(
+`https://www.linkedin.com/sharing/share-offsite/?url=${window.location.href}`
+)
 }
 className="rounded-full bg-blue-700 p-3 text-white transition hover:scale-110"
 >
@@ -142,10 +169,6 @@ className="group flex items-center text-xs font-bold uppercase tracking-widest t
 <ArrowLeft className="mr-2 h-3 w-3 transition-transform group-hover:-translate-x-1" />
 Back to Blog
 </Link>
-
-<span className="hidden sm:block text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400">
-Veyil Solutions © 2026
-</span>
 
 </div>
 
@@ -181,14 +204,44 @@ Veyil Solutions © 2026
 
 <img
 src={blog.image}
-alt={blog.title}
+alt={`${blog.title} - Blog by Veyil Solutions`}
 className="aspect-[16/9] w-full object-cover"
 />
 
 </div>
 
+{/* TABLE OF CONTENTS */}
+{headings.length > 0 && (
+<nav className="mx-auto mb-16 max-w-3xl rounded-xl border p-6 dark:border-gray-800">
+
+<h3 className="mb-4 text-lg font-semibold dark:text-white">
+Table of Contents
+</h3>
+
+<ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+
+{headings.map((heading,index)=>(
+<li key={index}>
+<a
+href={`#${heading.id}`}
+className="hover:text-black dark:hover:text-white transition"
+>
+{heading.text}
+</a>
+</li>
+))}
+
+</ul>
+
+</nav>
+)}
+
 {/* CONTENT */}
-<article className="mx-auto max-w-3xl space-y-8">
+<article
+itemScope
+itemType="https://schema.org/Article"
+className="mx-auto max-w-3xl space-y-8"
+>
 
 {blog.content.map((block,index)=>{
 
@@ -201,8 +254,14 @@ return(
 }
 
 if(block.type==="heading"){
+const id = block.text.toLowerCase().replace(/\s+/g,"-");
+
 return(
-<h2 key={index} className="mt-14 text-2xl font-bold text-gray-900 dark:text-white animate-fade-in">
+<h2
+id={id}
+key={index}
+className="mt-14 scroll-mt-24 text-2xl font-bold text-gray-900 dark:text-white"
+>
 {block.text}
 </h2>
 );
@@ -235,12 +294,14 @@ return null;
 
 <button
 onClick={()=>{
+
 if(navigator.share){
 navigator.share({
 title:blog.title,
 url:window.location.href
 })
 }
+
 }}
 className="flex items-center gap-2 rounded-full bg-gray-100 px-4 py-2 text-sm font-medium hover:bg-gray-200 dark:bg-gray-900 dark:hover:bg-gray-800"
 >
@@ -281,44 +342,9 @@ className="h-16 w-16 rounded-full"
 </div>
 
 </div>
-</div>
-
-{/* RELATED ARTICLES 
-<section className="mx-auto mt-24 max-w-6xl px-4">
-
-<h2 className="mb-10 text-3xl font-bold dark:text-white">
-Related Articles
-</h2>
-
-<div className="grid gap-8 md:grid-cols-3">
-
-{relatedBlogs.map((item)=>(
-<Link key={item.slug} to={`/blogs/${item.slug}`} className="group">
-
-<div className="overflow-hidden rounded-xl">
-
-<img
-src={item.image}
-className="aspect-[16/10] w-full object-cover transition group-hover:scale-105"
-/>
 
 </div>
 
-<h3 className="mt-4 text-lg font-semibold dark:text-white">
-{item.title}
-</h3>
-
-<p className="mt-2 text-sm text-gray-500">
-{item.description}
-</p>
-
-</Link>
-))}
-
-</div>
-
-</section>
-*/}
 </section>
 </>
 );
