@@ -128,7 +128,7 @@ function App() {
             {/* SERVICES */}
             <Route path="/services/ecommerce-development" element={<WebDevelopment />} />
             <Route path="/services/business-website-development" element={<MobileAppDevelopment />} />
-            <Route path="/services/ddesign-services" element={<WebDesign />} />
+            <Route path="/services/design-services" element={<WebDesign />} />
 
             <Route path="/portfolio" element={<Portfolio />} />
 
