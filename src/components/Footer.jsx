@@ -101,7 +101,7 @@ function Footer() {
           </h4>
           <ul className="space-y-4 text-sm">
             <li>
-              <Link to="/services/e-commerce-development" className="flex items-center gap-3 text-slate-400 hover:text-white transition group">
+              <Link to="/services/ecommerce-development" className="flex items-center gap-3 text-slate-400 hover:text-white transition group">
                 <ShoppingBag className="w-4 h-4 text-teal group-hover:text-white" />
                 E-commerce Development
               </Link>
