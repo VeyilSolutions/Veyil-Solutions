@@ -8,16 +8,16 @@ import {
   Instagram,
   Layers,
   TrendingUp,
-  Star,
+  Palette,
 } from "lucide-react";
 
 export default function CreativeDesign() {
   return (
     <>
-      {/* HERO */}
+      {/* HERO - SEO Optimized Title */}
       <ServiceHero
-        title="Creative Design Services"
-        subtitle="High-impact visuals and custom branding designed to make your business stand out and capture your audience's attention"
+        title="Professional Creative Design & Visual Branding"
+        subtitle="High-impact Instagram posts, custom posters, and bespoke website graphics designed to make your business stand out."
         image={CreativeDesignImg}
       />
 
@@ -26,29 +26,29 @@ export default function CreativeDesign() {
         <div className="max-w-6xl mx-auto">
           <div className="max-w-4xl mb-14">
             <h2 className="text-3xl font-bold text-navy mb-4">
-              Designs That Stop the Scroll
+              Visuals That Build Authority
             </h2>
             <p className="text-slate-600 text-lg leading-relaxed">
-              We craft bold, eye-catching visuals tailored for business owners
-              who want to dominate on Instagram and beyond. From branded social
-              media posts to full creative campaigns, our designs tell your
-              story and turn followers into customers.
+              We specialize in crafting bold, professional visuals for business owners 
+              looking to dominate their niche. Whether you need a cohesive Instagram 
+              aesthetic, high-conversion posters, or custom-made assets for your website, 
+              we deliver designs that turn viewers into loyal customers.
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                title: "Instagram-Ready Posts",
-                desc: "Scroll-stopping social content crafted specifically for business owners to build brand presence and drive engagement.",
+                title: "Instagram Content Mastery",
+                desc: "Scroll-stopping social media posts and story sets designed to increase engagement and build your brand's digital presence.",
               },
               {
-                title: "Custom Brand Identity",
-                desc: "Cohesive visual identities — logos, color palettes, and typography — that make your business instantly recognizable.",
+                title: "Custom Poster Design",
+                desc: "High-resolution posters for digital marketing or print that communicate your message clearly and professionally.",
               },
               {
-                title: "Results-Driven Creatives",
-                desc: "Every design is built with strategy in mind — to attract attention, build trust, and convert your audience into clients.",
+                title: "Web-Ready Visual Assets",
+                desc: "Custom banners, icons, and featured images created specifically to match your website's UI and branding.",
               },
             ].map((item, i) => (
               <div
@@ -65,40 +65,40 @@ export default function CreativeDesign() {
 
       {/* CORE CAPABILITIES */}
       <ServiceFeatures
-        title="Our Creative Design Capabilities"
+        title="Our Creative Design Specializations"
         features={[
-          "Instagram & Social Media Post Design",
-          "Business Branding & Logo Design",
-          "Marketing Flyers & Promotional Graphics",
-          "Brand Style Guides & Visual Identity",
-          "Story, Reel & Carousel Templates",
-          "Print & Digital Ad Creatives",
+          "Instagram Feed & Story Post Design",
+          "Promotional Poster & Flyer Design",
+          "Website Banner & Hero Images",
+          "Branded Social Media Templates",
+          "Custom Digital Marketing Graphics",
+          "Print-Ready Marketing Materials",
         ]}
       />
 
-      {/* DESIGN STACK */}
+      {/* DESIGN STACK - Updated with your specific tools */}
       <section className="py-24 px-6 bg-slate-50">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-navy mb-14 text-center">
-            Creative Tools & Methodologies
+            Our Professional Design Stack
           </h2>
 
           <div className="grid md:grid-cols-3 gap-10">
             {[
               {
-                title: "Brand Strategy",
-                icon: <Star className="w-6 h-6 text-teal" />,
-                items: ["Competitor Research", "Brand Positioning", "Audience Analysis", "Visual Direction"],
+                title: "Visual Strategy",
+                icon: <Palette className="w-6 h-6 text-teal" />,
+                items: ["Color Theory", "Typography", "Visual Hierarchy", "Brand Consistency"],
               },
               {
-                title: "Visual Design",
+                title: "Core Design Tools",
                 icon: <PenTool className="w-6 h-6 text-teal" />,
-                items: ["Adobe Illustrator", "Photoshop", "Canva Pro", "Figma"],
+                items: ["Affinity Designer", "Canva Pro", "Vector Illustration"],
               },
               {
-                title: "Content Creation",
+                title: "Output Formats",
                 icon: <Instagram className="w-6 h-6 text-teal" />,
-                items: ["Post Templates", "Story Designs", "Carousel Layouts", "Reel Covers"],
+                items: ["High-Res JPG/PNG", "Print-Ready PDF", "Social Media Templates"],
               },
             ].map((stack, i) => (
               <div
@@ -130,16 +130,16 @@ export default function CreativeDesign() {
       <section className="py-24 px-6 bg-slate-50">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-navy mb-16 text-center">
-            Creative Solutions We Deliver
+            Creative Assets We Deliver
           </h2>
 
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { icon: Instagram, text: "Instagram feed & story posts for businesses" },
-              { icon: Sparkles, text: "Custom logo & brand identity design" },
-              { icon: Layers, text: "Promotional flyers & marketing materials" },
-              { icon: TrendingUp, text: "Ad creatives for paid social campaigns" },
-              { icon: PenTool, text: "Brand style guides & design systems" },
+              { icon: Instagram, text: "Engaging Instagram content for businesses" },
+              { icon: Sparkles, text: "Clean and modern poster designs" },
+              { icon: Layers, text: "Custom website graphics and icons" },
+              { icon: TrendingUp, text: "High-conversion ad creatives" },
+              { icon: PenTool, text: "Professional vector illustrations" },
             ].map((item, i) => {
               const Icon = item.icon;
               return (
@@ -162,17 +162,17 @@ export default function CreativeDesign() {
       <section className="py-24 px-6 bg-slate-50">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-navy mb-12">
-            Why Choose Our Creative Team
+            Why Partner With Our Design Team
           </h2>
 
           <div className="grid md:grid-cols-2 gap-6">
             {[
-              "Designs tailored specifically for business owners",
-              "Instagram-optimized visuals that drive real engagement",
-              "Brand-consistent creatives across all platforms",
-              "Fast turnaround with unlimited revision rounds",
-              "Strategy-led design rooted in your target audience",
-              "Scalable content packages for ongoing social needs",
+              "Pixel-perfect designs using Affinity Designer",
+              "Efficient workflow with professional Canva templates",
+              "Fast turnaround times for social media needs",
+              "Visuals optimized for web performance and speed",
+              "Unlimited creative collaboration for your brand",
+              "Design consistency across all digital touchpoints",
             ].map((item, i) => (
               <div
                 key={i}
@@ -190,11 +190,11 @@ export default function CreativeDesign() {
       <section className="py-20 px-6 bg-sky-100">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold text-navy mb-4">
-            Ready to Make Your Brand Unforgettable?
+            Ready to Elevate Your Visual Identity?
           </h2>
           <p className="text-slate-600 mb-8 text-lg">
-            Let's create stunning visuals that capture attention, build your
-            brand, and turn your Instagram into a powerful business tool.
+            Let's create professional posters and social media content that 
+            makes your brand unforgettable.
           </p>
 
           <div className="flex flex-col sm:flex-row justify-center gap-4">
@@ -202,13 +202,13 @@ export default function CreativeDesign() {
               href="/contact"
               className="px-8 py-4 rounded-xl bg-teal text-white font-semibold hover:bg-teal/90 transition"
             >
-              Start a Creative Consultation
+              Get a Design Quote
             </a>
             <a
               href="/#services"
               className="px-8 py-4 rounded-xl border border-slate-300 font-semibold hover:bg-white transition"
             >
-              View All Services
+              Back to Services
             </a>
           </div>
         </div>

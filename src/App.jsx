@@ -19,9 +19,9 @@ import Faq from "@/pages/faq";
 import Price from "@/pages/price";
 import Portfolio from "@/pages/Portfolio";
 
-import WebDevelopment from "@/pages/services/WebDevelopment";
-import MobileAppDevelopment from "@/pages/services/MobileAppDevelopment";
-import WebDesign from "@/pages/services/WebDesign";
+import ShopifyDevelopment from "@/pages/services/ShopifyDevelopment";
+import BusinessWebsiteDevelopment from "@/pages/services/BusinessWebsiteDevelopment";
+import CreativeDesign from "@/pages/services/CreativeDesign";
 
 /* BLOG PAGES */
 import Blogs from "@/pages/Blogs/Blogs";
@@ -126,9 +126,9 @@ function App() {
             <Route path="/cookie-policy" element={<CookiePolicy />} />
 
             {/* SERVICES */}
-            <Route path="/services/ecommerce-development" element={<WebDevelopment />} />
-            <Route path="/services/business-website-development" element={<MobileAppDevelopment />} />
-            <Route path="/services/design-services" element={<WebDesign />} />
+            <Route path="/services/ecommerce-development" element={<ShopifyDevelopment />} />
+            <Route path="/services/business-website-development" element={<BusinessWebsiteDevelopment />} />
+            <Route path="/services/design-services" element={<CreativeDesign />} />
 
             <Route path="/portfolio" element={<Portfolio />} />
 
