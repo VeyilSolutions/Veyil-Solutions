@@ -160,7 +160,7 @@ function Footer() {
                   <p className="font-semibold text-slate-300">
                     Veyil Solutions
                   </p>
-                  <p>Omalur, Salem – 636011</p>
+                  <p>Omalur, Salem – 636455</p>
                   <p>Tamil Nadu, India</p>
                 </div>
               </a>
