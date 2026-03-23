@@ -1,5 +1,8 @@
 import whatsappSelling from "@/assets/whatsapp-selling.png";
 import EcommerceTamilnadu from "@/assets/ecommerce-tamil-nadu.jpeg";
+import InstagramSelling from "@/assets/instagram-selling.png";
+
+
 
 export const blogData = [ { 
 
@@ -582,7 +585,7 @@ text: `Your website is not just a digital brochure — it is your most powerful 
 
   featured: true,
 
-  image: EcommerceTamilnadu,
+  image: InstagramSelling,
 
   keywords: [
     "social commerce limitations",
