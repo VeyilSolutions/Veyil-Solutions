@@ -263,12 +263,28 @@ function Contact() {
                   onChange={handleChange} required
                   aria-describedby={errors.projectPlan ? "projectPlan-error" : undefined}
                   className={errors.projectPlan ? "error" : ""}>
-                  <option value="" disabled hidden></option>
-                  <option value="Free Sample">Free Sample</option>
-                  <option value="Launch Store">Launch Store</option>
-                  <option value="Growth Store">Growth Store</option>
-                  <option value="Monthly Support">Monthly Support</option>
-                  <option value="Others">Others</option>
+
+                    <option value="" disabled hidden></option>
+
+                    <optgroup label="Free">
+                      <option value="Free Sample">Free Sample</option>
+                    </optgroup>
+
+                    <optgroup label="Website Services">
+                      <option value="Business Website">Business Website</option>
+                    </optgroup>
+
+                    <optgroup label="Ecommerce Stores">
+                      <option value="Launch Store">Launch Store</option>
+                      <option value="Growth Store">Growth Store</option>
+                    </optgroup>
+
+                    <optgroup label="Support">
+                      <option value="Monthly Support">Monthly Support</option>
+                    </optgroup>
+
+                    <option value="Others">Others</option>
+                    
                 </select>
                 <label htmlFor="projectPlan" className={formData.projectPlan ? "active" : ""}>
                   {renderAnimatedLabel("Select Project Plan")}
