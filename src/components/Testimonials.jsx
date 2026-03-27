@@ -10,6 +10,8 @@ import { Globe } from "lucide-react"
 
 import prasanaImg from "@/assets/C1.jpeg"
 import leaderLogo from "@/assets/L1.png"
+import pathLogo from "@/assets/P1.jpg"
+//import pathImg from "@/assets/P2.jpg"
 
 const testimonials = [
   {
@@ -21,6 +23,17 @@ const testimonials = [
     link: "https://leaderclothings.in",
     description:
       "Excellent web development experience. The website design is clean, modern, and fully responsive across devices.",
+  },
+ 
+   {
+    id: 2,
+    name: "Path Finder",
+    company: "Path Finder",
+    image: pathLogo,
+    logo: pathLogo,
+    link: "https://path-finder-mu-three.vercel.app/",
+    description:
+      "We are extremely impressed with the final result. The website isn't just visually stunning and professional; its performance is seamless. The attention to detail throughout the development process ensured a high-quality product that truly represents our brand.",
   },
 ]
 
