@@ -20,7 +20,7 @@ const testimonials = [
     logo: leaderLogo,
     link: "https://leaderclothings.in",
     description:
-      "Excellent web development experience. The website design is clean, modern, and fully responsive across devices. The development process was smooth and professional, and the final result perfectly represents our brand online.",
+      "Excellent web development experience. The website design is clean, modern, and fully responsive across devices.",
   },
 ]
 
@@ -31,38 +31,30 @@ export default function CleanPhysicsTestimonials() {
   const x = useMotionValue(0)
   const y = useMotionValue(0)
 
-  const rotate = useTransform(x, [-300, 300], [-5, 5])
-  const scale = useTransform(x, [-300, 0, 300], [0.97, 1, 0.97])
+  const rotate = useTransform(x, [-300, 300], [-4, 4])
+  const scale = useTransform(x, [-300, 0, 300], [0.98, 1, 0.98])
 
   const handleDragEnd = (_, info) => {
     const offsetX = info.offset.x
     const offsetY = info.offset.y
-    const threshold = 120
+    const threshold = 100
 
     if (Math.abs(offsetX) > Math.abs(offsetY)) {
       if (offsetX < -threshold) {
-        setDirection({ x: 100, y: 0 })
-        setIndex((prev) => (prev + 1) % testimonials.length)
+        setDirection({ x: 80, y: 0 })
+        setIndex((p) => (p + 1) % testimonials.length)
       } else if (offsetX > threshold) {
-        setDirection({ x: -100, y: 0 })
-        setIndex((prev) =>
-          (prev - 1 + testimonials.length) % testimonials.length
-        )
-      } else {
-        resetPosition()
-      }
+        setDirection({ x: -80, y: 0 })
+        setIndex((p) => (p - 1 + testimonials.length) % testimonials.length)
+      } else resetPosition()
     } else {
       if (offsetY < -threshold) {
-        setDirection({ x: 0, y: 100 })
-        setIndex((prev) => (prev + 1) % testimonials.length)
+        setDirection({ x: 0, y: 80 })
+        setIndex((p) => (p + 1) % testimonials.length)
       } else if (offsetY > threshold) {
-        setDirection({ x: 0, y: -100 })
-        setIndex((prev) =>
-          (prev - 1 + testimonials.length) % testimonials.length
-        )
-      } else {
-        resetPosition()
-      }
+        setDirection({ x: 0, y: -80 })
+        setIndex((p) => (p - 1 + testimonials.length) % testimonials.length)
+      } else resetPosition()
     }
 
     x.set(0)
@@ -70,30 +62,32 @@ export default function CleanPhysicsTestimonials() {
   }
 
   const resetPosition = () => {
-    animate(x, 0, { type: "spring", stiffness: 500, damping: 30 })
-    animate(y, 0, { type: "spring", stiffness: 500, damping: 30 })
+    animate(x, 0, { type: "spring", stiffness: 400, damping: 30 })
+    animate(y, 0, { type: "spring", stiffness: 400, damping: 30 })
   }
 
   const current = testimonials[index]
 
   return (
-    <section className="bg-white py-28 overflow-hidden">
-      <div className="max-w-5xl mx-auto text-center px-6">
+    <section className="bg-white py-16 sm:py-20 lg:py-24 overflow-hidden">
+      <div className="max-w-4xl mx-auto text-center px-4 sm:px-6">
 
         {/* Heading */}
-        <div className="mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-black">
+        <div className="mb-10 sm:mb-14">
+          <h2 className="text-2xl sm:text-4xl font-bold text-black">
             What Our Clients Say
           </h2>
 
-          <div className="w-20 h-[2px] bg-black mx-auto my-6 rounded-full opacity-80" />
+          <div className="w-16 h-[2px] bg-black mx-auto my-4 opacity-70" />
 
-          <p className="max-w-2xl mx-auto text-black/60 text-base leading-relaxed">
+          <p className="text-black/60 text-sm sm:text-base">
             Swipe in any direction to explore testimonials.
           </p>
         </div>
 
-        <div className="relative flex justify-center items-center h-[420px]">
+        {/* Card Area */}
+        <div className="relative flex justify-center items-center min-h-[320px] sm:min-h-[360px]">
+
           <AnimatePresence mode="wait">
             <motion.div
               key={current.id}
@@ -108,39 +102,36 @@ export default function CleanPhysicsTestimonials() {
               style={{ x, y, rotate, scale }}
               className="
                 absolute
-                w-[420px] min-h-[360px]
-                bg-white border border-black/10 rounded-3xl
-                px-10 py-12 flex flex-col items-center justify-center
+                w-full max-w-sm sm:max-w-md
+                bg-white border border-black/10 rounded-2xl
+                px-6 py-8 sm:px-8 sm:py-10
+                flex flex-col items-center
                 cursor-grab active:cursor-grabbing
-                shadow-[0_25px_60px_rgba(0,0,0,0.08)]
+                shadow-lg
               "
             >
               {/* Logo */}
-              <div className="mb-6 bg-gray-100 px-4 py-2 rounded-full flex items-center gap-2 shadow-sm">
-                <img
-                  src={current.logo}
-                  alt={current.company}
-                  className="w-5 h-5 object-contain"
-                />
-                <span className="text-xs font-semibold text-gray-600 uppercase">
+              <div className="mb-5 bg-gray-100 px-3 py-1.5 rounded-full flex items-center gap-2">
+                <img src={current.logo} className="w-4 h-4" />
+                <span className="text-[10px] font-semibold text-gray-600 uppercase">
                   {current.company}
                 </span>
               </div>
 
-              {/* Profile Image */}
+              {/* Profile */}
               <img
                 src={current.image}
                 alt={current.name}
-                className="w-[100px] h-[100px] rounded-full object-cover mb-5 shadow-md"
+                className="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover mb-4"
               />
 
               {/* Name */}
-              <h3 className="text-2xl font-semibold text-gray-800">
+              <h3 className="text-lg sm:text-xl font-semibold text-gray-800">
                 {current.name}
               </h3>
 
               {/* Description */}
-              <p className="mt-5 text-gray-600 text-sm leading-relaxed text-center italic max-w-[320px]">
+              <p className="mt-4 text-gray-600 text-xs sm:text-sm text-center italic max-w-xs">
                 "{current.description}"
               </p>
 
@@ -150,13 +141,14 @@ export default function CleanPhysicsTestimonials() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onPointerDown={(e) => e.stopPropagation()}
-                className="mt-6 flex items-center gap-2 text-xs font-semibold text-gray-700 hover:opacity-60 transition-opacity"
+                className="mt-5 flex items-center gap-2 text-[11px] font-semibold text-gray-700 hover:opacity-60"
               >
                 <Globe size={14} />
                 VISIT WEBSITE
               </a>
             </motion.div>
           </AnimatePresence>
+
         </div>
       </div>
     </section>

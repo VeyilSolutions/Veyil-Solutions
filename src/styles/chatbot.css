@@ -123,27 +123,18 @@ to{transform:rotate(360deg)}
 
 .veyil-ai-win{
 position:absolute;
-
-bottom:68px;
-right:0;
-
+bottom:0;
+right:68px;
 width:360px;
 height:540px;
-
 background:#fff;
-
 border-radius:18px;
-
 box-shadow:0 28px 72px rgba(15,23,42,.16),0 4px 14px rgba(0,0,0,.08);
-
 display:flex;
 flex-direction:column;
 overflow:hidden;
-
 border:1px solid #e5e7eb;
-
 animation:veyil-aiS .26s cubic-bezier(.34,1.56,.64,1);
-
 transform-origin:bottom right;
 }
 
@@ -692,11 +683,8 @@ left:14px
 width:100%;
 right:0;
 left:0;
-
 height:calc(100dvh - 84px);
-
 bottom:64px;
-
 border-radius:15px
 }
 

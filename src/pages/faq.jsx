@@ -1,15 +1,11 @@
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Check } from "lucide-react";
 import { faqData } from "@/data/faqData";
 
 export default function Faq() {
-
   const [activeIndex, setActiveIndex] = useState(null);
-
   let counter = 0;
-
-  /* FAQ Schema for SEO + GEO */
 
   const schemaData = {
     "@context": "https://schema.org",
@@ -28,59 +24,110 @@ export default function Faq() {
 
   return (
     <>
-      {/* SEO + GEO Structured Data */}
       <Helmet>
-
         <title>
-          Ecommerce FAQ – Online Store & Shopify Questions | Veyil Solutions
+          Website & Ecommerce FAQ | Shopify, Business Websites | Veyil Solutions
         </title>
 
         <meta
           name="description"
-          content="Frequently asked questions about ecommerce websites, Shopify stores, online payments, shipping integration, and launching an online business."
-        />
-
-        <meta
-          name="keywords"
-          content="ecommerce website FAQ, Shopify store questions, online store development India, ecommerce business questions"
+          content="FAQs about website development, ecommerce stores, Shopify setup, and online business growth in India."
         />
 
         <script type="application/ld+json">
           {JSON.stringify(schemaData)}
         </script>
-
       </Helmet>
 
       <section className="pt-32 pb-20 px-6 bg-slate-50 min-h-screen">
-        
+        <div className="max-w-5xl mx-auto">
 
-        <div className="max-w-4xl mx-auto">
-
-          {/* Header */}
-
-          <header className="text-center mb-16">
-
+          {/* HEADER */}
+          <header className="text-center mb-20">
             <h1 className="text-4xl font-bold text-navy mb-4">
               Frequently Asked Questions
             </h1>
 
-            <p className="text-slate-500 max-w-2xl mx-auto leading-relaxed">
-             Answers to common questions about building websites, launching
-             online stores, and growing a digital business.
+            <p className="text-slate-500 max-w-2xl mx-auto">
+              Answers to common questions about websites, ecommerce, and online business growth.
             </p>
 
+            {/* ✅ TRUST ROW (ONLY ONCE HERE) */}
+            <div className="flex flex-wrap justify-center gap-6 mt-6 text-sm text-slate-600">
+              <div className="flex items-center gap-2">
+                <Check className="w-4 h-4 text-green-500" />
+                <span>Trusted by businesses</span>
+              </div>
+
+              <div className="flex items-center gap-2">
+                <Check className="w-4 h-4 text-green-500" />
+                <span>Fast delivery</span>
+              </div>
+
+              <div className="flex items-center gap-2">
+                <Check className="w-4 h-4 text-green-500" />
+                <span>No hidden costs</span>
+              </div>
+            </div>
           </header>
 
-          {/* FAQ Sections */}
+          {/* CARDS */}
+          <section className="mb-28">
+            <div className="grid md:grid-cols-2 gap-8">
 
+              {/* WHAT WE DO */}
+              <div className="bg-white rounded-3xl p-10 border border-slate-200 shadow-sm hover:shadow-xl transition">
+                <span className="text-xs font-bold tracking-widest text-teal uppercase">
+                  What We Do
+                </span>
+
+                <h2 className="text-2xl font-bold text-navy mt-3 mb-4">
+                  Build Websites That Generate Customers
+                </h2>
+
+                <p className="text-slate-600 leading-relaxed">
+                  We create ecommerce websites, Shopify stores, and business websites
+                  that help businesses get more leads and sales online.
+                </p>
+
+                <p className="text-slate-500 mt-4 text-sm">
+                  Focused on SEO, performance, and conversion.
+                </p>
+              </div>
+
+              {/* WHO WE HELP */}
+              <div className="bg-white rounded-3xl p-10 border border-slate-200 shadow-sm hover:shadow-xl transition">
+                <span className="text-xs font-bold tracking-widest text-indigo-500 uppercase">
+                  Who We Help
+                </span>
+
+                <h2 className="text-2xl font-bold text-navy mt-3 mb-4">
+                  Businesses Ready to Grow Online
+                </h2>
+
+                <ul className="space-y-3 text-slate-600 text-sm">
+                  {[
+                    "Saree wholesalers",
+                    "Construction companies",
+                    "Local service businesses",
+                    "Ecommerce brands",
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-center gap-2">
+                      <Check className="w-4 h-4 text-green-500" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+            </div>
+          </section>
+
+          {/* FAQ */}
           <div className="space-y-12">
 
             {faqData.map((section, sectionIndex) => (
-
               <section key={sectionIndex}>
-
-                {/* Category Title */}
-
                 <h2 className="text-xl font-bold text-navy mb-6">
                   {section.category}
                 </h2>
@@ -88,18 +135,14 @@ export default function Faq() {
                 <div className="space-y-4">
 
                   {section.questions.map((item, index) => {
-
                     const currentIndex = counter++;
                     const isOpen = activeIndex === currentIndex;
 
                     return (
-
                       <article
                         key={index}
-                        className="group bg-white border border-slate-200 rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-md"
+                        className="bg-white border border-slate-200 rounded-2xl overflow-hidden hover:shadow-md transition"
                       >
-
-                        {/* Question */}
 
                         <button
                           onClick={() =>
@@ -107,77 +150,76 @@ export default function Faq() {
                           }
                           className="w-full flex justify-between items-center p-6 text-left"
                         >
-
-                          <h3 className="font-semibold text-navy pr-6 group-hover:text-teal transition-colors duration-200">
+                          <h3 className="font-semibold text-navy pr-6">
                             {item.question}
                           </h3>
 
                           <ChevronDown
-                            className={`w-5 h-5 text-teal transition-transform duration-300 ${
+                            className={`transition ${
                               isOpen ? "rotate-180" : ""
                             }`}
                           />
-
                         </button>
 
-                        {/* Animated Answer */}
-
                         <div
-                          className={`grid transition-all duration-300 ease-in-out ${
+                          className={`grid transition-all duration-300 ${
                             isOpen
                               ? "grid-rows-[1fr] opacity-100"
                               : "grid-rows-[0fr] opacity-0"
                           }`}
                         >
-
                           <div className="overflow-hidden">
-
-                            <div className="px-6 pb-6 text-slate-500 leading-relaxed text-sm">
-
+                            <div className="px-6 pb-6 text-slate-500 text-sm">
                               {item.answer}
-
                             </div>
-
                           </div>
-
                         </div>
 
                       </article>
-
                     );
-
                   })}
 
                 </div>
-
               </section>
-
             ))}
 
           </div>
 
-          {/* Brand Authority Section (Important for GEO) */}
+          {/* ABOUT */}
+          <section className="mt-28">
+            <div className="bg-gradient-to-br from-slate-900 to-slate-800 text-white rounded-[2.5rem] p-12 text-center shadow-2xl">
 
-          <section className="mt-20 text-center max-w-2xl mx-auto">
+              <span className="text-xs uppercase tracking-widest text-teal font-bold">
+                About Veyil Solutions
+              </span>
 
-            <h2 className="text-2xl font-bold text-navy mb-4">
-              About Veyil Solutions
-            </h2>
+              <h2 className="text-3xl font-bold mt-4 mb-6">
+                We Build Websites That Grow Businesses
+              </h2>
 
-            <p className="text-slate-500 leading-relaxed">
-              Veyil Solutions is a digital agency that helps entrepreneurs
-              and businesses build professional websites, ecommerce stores,
-              and scalable digital platforms. Our mission is to help
-              businesses move from manual selling methods to automated
-              online businesses that grow sustainably.
-            </p>
+              <p className="text-slate-300 max-w-2xl mx-auto">
+                Veyil Solutions helps businesses move from manual selling to automated online systems.
+              </p>
 
+              <div className="mt-8 flex flex-wrap justify-center gap-4 text-sm">
+                {["SEO Optimized", "Conversion Focused", "Built for Growth"].map(
+                  (item, i) => (
+                    <span
+                      key={i}
+                      className="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full"
+                    >
+                      <Check className="w-4 h-4 text-green-400" />
+                      {item}
+                    </span>
+                  )
+                )}
+              </div>
+
+            </div>
           </section>
 
         </div>
-
       </section>
-
     </>
   );
 }

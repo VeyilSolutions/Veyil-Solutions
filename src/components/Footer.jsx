@@ -30,27 +30,34 @@ function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-navy text-white pt-20 pb-5 px-6">
+    <footer className="bg-navy text-white pt-0 pb-5 px-6">
+
+      {/* 🔥 TOP GRADIENT LINE */}
+      <div className="h-[2px] w-full bg-gradient-to-r from-indigo-500 via-teal-400 to-blue-500 mb-16" />
+
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12 border-b border-white/10 pb-16 mb-8">
 
         {/* ================= BRAND ================= */}
         <div>
-          <Link to="/" className="flex items-center gap-2 mb-6">
-            <div className="h-8 flex items-center">
-               <img
-                  src="/faviconbg.png"
-                  alt="Veyil Solutions Logo"
-                  className="h-full w-auto"
-                />
-            </div>
-            <span className="font-bold tracking-tight uppercase">
+          <Link to="/" className="flex items-center gap-3 mb-6">
+            <img src="/faviconbg.png" alt="logo" className="h-9" />
+            <span className="font-bold tracking-tight uppercase text-lg">
               Veyil Solutions
             </span>
           </Link>
 
-          <p className="text-slate-400 text-sm italic mb-8">
-            We build structured, conversion-focused online stores for growing product businesses across Tamil Nadu.
+          <p className="text-slate-400 text-sm leading-relaxed mb-6">
+            We build conversion-focused ecommerce and business websites that help
+            businesses grow online.
           </p>
+
+          {/* CTA */}
+          <Link
+            to="/contact"
+            className="inline-block bg-teal text-white text-sm font-semibold px-5 py-3 rounded-xl hover:bg-white hover:text-navy transition mb-6"
+          >
+            Get Free Sample Website
+          </Link>
 
           <SocialIcons />
         </div>
@@ -127,6 +134,7 @@ function Footer() {
             Contact
           </h4>
           <ul className="space-y-5 text-sm">
+
             <li>
               <a
                 href="https://wa.me/918489559160"
@@ -138,13 +146,14 @@ function Footer() {
                 +91 84895 59160
               </a>
             </li>
+
             <li>
               <a
                 href="mailto:veyilsolutions@gmail.com"
                 className="flex items-center gap-3 text-slate-400 hover:text-white transition group"
               >
                 <Mail className="w-4 h-4 text-teal group-hover:text-white" />
-                <span className="break-all">Veyilsolutions@gmail.com</span>
+                <span className="break-all">veyilsolutions@gmail.com</span>
               </a>
             </li>
 
@@ -155,8 +164,8 @@ function Footer() {
                 rel="noopener noreferrer"
                 className="flex items-start gap-3 text-slate-400 hover:text-white transition group"
               >
-                <MapPin className="w-4 h-4 text-teal mt-1 flex-shrink-0 group-hover:text-white" />
-                <div className="text-sm leading-6">
+                <MapPin className="w-4 h-4 text-teal mt-1" />
+                <div>
                   <p className="font-semibold text-slate-300">
                     Veyil Solutions
                   </p>
@@ -165,28 +174,24 @@ function Footer() {
                 </div>
               </a>
             </li>
+
           </ul>
         </div>
+
       </div>
 
       {/* ================= BOTTOM ================= */}
       <div className="max-w-7xl mx-auto px-3 py-4 flex flex-col md:flex-row items-center justify-between gap-2 text-[11px] text-slate-400 uppercase tracking-widest font-semibold text-center md:text-left">
         <p>© {currentYear} Veyil Solutions. All rights reserved.</p>
-        <div className="flex flex-wrap justify-center items-center gap-4 md:gap-6">
-          <Link to="/work-process" className="hover:text-white transition whitespace-nowrap">
-            Our Work Process
-          </Link>
-          <Link to="/privacy-policy" className="hover:text-white transition whitespace-nowrap">
-            Privacy Policy
-          </Link>
-          <Link to="/terms-and-conditions" className="hover:text-white transition whitespace-nowrap">
-            Terms & Conditions
-          </Link>
-          <Link to="/cookie-policy" className="hover:text-white transition whitespace-nowrap">
-            Cookie Policy
-          </Link>
+
+        <div className="flex flex-wrap gap-4 md:gap-6">
+          <Link to="/work-process" className="hover:text-white">Our Work Process</Link>
+          <Link to="/privacy-policy" className="hover:text-white">Privacy Policy</Link>
+          <Link to="/terms-and-conditions" className="hover:text-white">Terms</Link>
+          <Link to="/cookie-policy" className="hover:text-white">Cookies</Link>
         </div>
       </div>
+
     </footer>
   );
 }

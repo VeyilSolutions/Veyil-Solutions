@@ -1,5 +1,5 @@
 import whatsappSelling from "@/assets/whatsapp-selling.png";
-import EcommerceTamilnadu from "@/assets/ecommerce-tamil-nadu.jpeg";
+import EcommerceTamilnadu from "@/assets/ecommerce-tamil-nadu.png";
 import InstagramSelling from "@/assets/instagram-selling.png";
 
 

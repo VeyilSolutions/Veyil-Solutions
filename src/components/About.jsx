@@ -1,10 +1,10 @@
 import { useEffect, useRef } from "react";
-import { 
-  CheckCircle2, 
-  Lightbulb, 
-  PenTool, 
-  TrendingUp, 
-  Search, 
+import {
+  CheckCircle2,
+  Lightbulb,
+  PenTool,
+  TrendingUp,
+  Search,
   ShieldCheck,
   Globe,
   Smartphone,
@@ -21,6 +21,7 @@ export default function About() {
 
   useEffect(() => {
     if (!lottieRef.current) return;
+
     if (animationRef.current) animationRef.current.destroy();
 
     animationRef.current = lottie.loadAnimation({
@@ -46,13 +47,12 @@ export default function About() {
           </span>
 
           <h2 className="text-4xl font-bold text-navy mt-4">
-            Exceptional Results
+            Why Businesses Choose Veyil Solutions
           </h2>
 
           <p className="text-slate-500 mt-4 max-w-2xl mx-auto text-lg">
-            We combine expertise, creativity, and dedication to deliver
-            websites and ecommerce stores that improve visibility,
-            conversions, and business growth.
+            We build modern websites and ecommerce platforms designed to
+            increase visibility, generate enquiries, and grow your business.
           </p>
         </header>
 
@@ -60,33 +60,33 @@ export default function About() {
 
           {[
             {
-              title: "SEO-Ready Websites",
-              desc: "Optimized for Google so customers can find you easily.",
+              title: "SEO-Optimized Websites",
+              desc: "Built to rank on Google and bring consistent organic traffic.",
               icon: <Globe className="text-teal" />,
             },
             {
               title: "Mobile-First Design",
-              desc: "Responsive layouts that look perfect on all screens.",
+              desc: "Perfect experience across mobile, tablet, and desktop devices.",
               icon: <Smartphone className="text-teal" />,
             },
             {
-              title: "Fast Delivery",
-              desc: "Quick turnaround times without compromising quality.",
+              title: "Fast & High Performance",
+              desc: "Modern, lightweight websites that load instantly.",
               icon: <Zap className="text-teal" />,
             },
             {
-              title: "Business-Focused",
-              desc: "Every decision is made to improve your bottom line.",
+              title: "Conversion-Focused",
+              desc: "Designed to turn visitors into leads and paying customers.",
               icon: <BarChart3 className="text-teal" />,
             },
             {
-              title: "Affordable Packages",
-              desc: "Flexible pricing designed for startups and SMEs.",
+              title: "Affordable Pricing",
+              desc: "Flexible plans for startups and growing businesses.",
               icon: <IndianRupee className="text-teal" />,
             },
             {
-              title: "Dedicated Support",
-              desc: "We are always here to help you, even after launch.",
+              title: "Ongoing Support",
+              desc: "We support you even after launch for continuous growth.",
               icon: <Headphones className="text-teal" />,
             },
           ].map((feature, idx) => (
@@ -125,11 +125,11 @@ export default function About() {
             </span>
 
             <h2 className="text-4xl font-bold text-navy mt-4">
-              How We Work
+              Our Working Process
             </h2>
 
             <p className="text-slate-500 mt-4 max-w-2xl mx-auto">
-              Our streamlined process ensures quality results and client satisfaction.
+              A simple and transparent workflow designed to deliver clarity, quality, and results.
             </p>
           </header>
 
@@ -138,28 +138,28 @@ export default function About() {
             {[
               {
                 title: "Discovery",
-                desc: "Understand your goals, target audience, and unique requirements.",
+                desc: "Understand your business goals and requirements.",
                 icon: <Search size={20} />,
               },
               {
                 title: "Free Sample",
-                desc: "We deliver a high-quality sample that showcases our vision—completely free.",
+                desc: "Preview your website concept before any payment.",
                 icon: <PenTool size={20} />,
                 highlight: true,
               },
               {
                 title: "Validation",
-                desc: "Review the concept and quality first—decide if you move forward.",
+                desc: "Review the design and approve the direction.",
                 icon: <ShieldCheck size={20} />,
               },
               {
                 title: "Execution",
-                desc: "We implement the full solution with precision and technical excellence.",
+                desc: "We build your website with precision and performance.",
                 icon: <Lightbulb size={20} />,
               },
               {
                 title: "Growth",
-                desc: "Ongoing support to keep your brand fresh and growing month after month.",
+                desc: "Continuous support and improvements for scaling.",
                 icon: <TrendingUp size={20} />,
               },
             ].map((item, index) => (
@@ -197,31 +197,31 @@ export default function About() {
         </div>
       </section>
 
-      {/* ================= 3. TARGET MARKETS ================= */}
+      {/* ================= 3. INDUSTRIES ================= */}
       <section id="industries" className="py-24 px-6 max-w-7xl mx-auto">
 
         <header className="text-center mb-16" data-aos="fade-up">
           <span className="text-teal font-bold uppercase tracking-widest text-sm">
-            Target Markets
+            Industries
           </span>
 
           <h2 className="text-4xl font-bold text-navy mt-4">
-            E-commerce Expertise
+            Businesses We Help Grow
           </h2>
 
           <p className="text-slate-500 mt-4 max-w-2xl mx-auto">
-            We specialize in building high-converting stores for businesses that need a powerful online presence.
+            We build websites for businesses that need strong online presence and consistent enquiries.
           </p>
         </header>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 text-center">
 
           {[
-            "Shopify Stores",
-            "Fashion & Retail",
-            "Health & Beauty",
-            "Electronics",
-            "Digital Products",
+            "Construction Companies",
+            "Interior Designers",
+            "Ecommerce Brands",
+            "Local Businesses",
+            "Service Providers",
           ].map((industry, index) => (
             <article
               key={industry}
@@ -238,7 +238,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* ================= 4. ABOUT US ================= */}
+      {/* ================= 4. ABOUT ================= */}
       <section
         id="about"
         className="py-24 px-6 max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 items-center"
@@ -265,24 +265,22 @@ export default function About() {
           </span>
 
           <h2 className="text-4xl font-bold text-navy mt-4 mb-6">
-            Innovate. Improve. Succeed.
+            Modern Websites for Real Business Growth
           </h2>
 
           <p className="text-slate-500 mb-6 text-lg leading-relaxed">
-            Veyil Solutions is built on <b>transparency over blind commitment.</b>
-            We create a preview of the proposed design direction for your store
-            or brand before any investment.
+            We help businesses move from Instagram, WhatsApp, or offline presence
+            into professional websites that build trust and generate enquiries.
           </p>
 
           <div className="bg-slate-50 border-l-4 border-teal p-5 mb-8 rounded-r-xl">
             <h3 className="font-bold text-navy mb-2 text-base">
-              The "Clarity First" Policy
+              Clarity First Policy
             </h3>
 
             <p className="text-sm text-slate-600 leading-relaxed">
-              Before you invest, we create a preview of the proposed design direction.
-              Review the concept, structure, and quality first—then decide whether
-              to move forward.
+              We create a sample homepage concept before payment so you can
+              clearly see how your website will look before making a decision.
             </p>
           </div>
 
@@ -290,17 +288,17 @@ export default function About() {
 
             <li className="flex items-center gap-4 font-semibold">
               <CheckCircle2 className="text-teal w-6 h-6" />
-              High-quality free samples available
+              Free sample before payment
             </li>
 
             <li className="flex items-center gap-4 font-semibold">
               <CheckCircle2 className="text-teal w-6 h-6" />
-              Clarity before payment – No blind commitment
+              Modern React & Shopify development
             </li>
 
             <li className="flex items-center gap-4 font-semibold">
               <CheckCircle2 className="text-teal w-6 h-6" />
-              Free sample for Shopify & Branding projects
+              Designed for real business growth
             </li>
 
           </ul>
@@ -312,4 +310,3 @@ export default function About() {
     </>
   );
 }
-

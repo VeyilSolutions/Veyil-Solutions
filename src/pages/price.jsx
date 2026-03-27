@@ -4,11 +4,11 @@ import {
   Check,
   ChevronDown,
   ChevronRight,
-  CreditCard,
   Globe,
   Layout,
   Smartphone,
 } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function PricingPage() {
   const [activeFaq, setActiveFaq] = useState(null);
@@ -16,6 +16,7 @@ export default function PricingPage() {
   const plans = [
     {
       name: "Free Sample",
+      color: "gray",
       price: 0,
       description: "Blurred preview concept before any advance payment.",
       features: [
@@ -27,43 +28,59 @@ export default function PricingPage() {
       to: "/contact",
     },
     {
-      name: "Launch Store",
-      price: 8000,
-      description:
-        "Perfect for Instagram & WhatsApp sellers starting online.",
+      name: "Starter Ecommerce Store",
+      color: "blue",
+      price: 8499,
+      description: "Perfect for beginners starting online business.",
       features: [
-        "Shopify store setup",
-        "Up to 7 pages",
+        "Basic Shopify store setup",
+        "Simple layout (no custom design)",
+        "Up to 5 pages",
+        "Up to 10 products",
         "Mobile optimized design",
         "Payment gateway integration",
         "Basic SEO setup",
-        "30 Days Free Support",
+        "20 Days Free Support",
         "Delivery: 5–7 Working Days",
+      ],
+      limitations: [
+        "No custom homepage design",
+        "Basic UI only",
+        "Limited scalability",
       ],
       buttonText: "Start My Store",
       to: "/contact",
     },
     {
-      name: "Growth Store",
-      price: 15000,
-      description:
-        "For product businesses ready to scale professionally.",
+      name: "Growth Ecommerce Store",
+      color: "purple",
+      price: 14999,
+      description: "For businesses ready to scale and increase sales.",
       features: [
-        "Up to 20 products setup",
-        "Custom homepage layout",
+        "Custom homepage design",
+        "Conversion-focused layout",
+        "Advanced product page design",
+        "20+ products setup",
         "Structured navigation",
-        "Conversion-focused design",
+        "Brand-focused UI design",
         "Advanced mobile optimization",
-        "Basic on-page SEO",
+        "SEO-ready structure",
+        "Performance optimization",
         "30 Days Free Support",
         "Delivery: 7–10 Working Days",
+      ],
+      highlight: [
+        "Higher conversion rate",
+        "Premium brand feel",
+        "Built for scaling",
       ],
       buttonText: "Upgrade My Business",
       to: "/contact",
     },
     {
       name: "Business Website",
-      price: 12000,
+      color: "teal",
+      price: 12999,
       description:
         "Professional website built to generate leads, build trust, and grow your brand.",
       features: [
@@ -72,7 +89,6 @@ export default function PricingPage() {
         "Mobile-first responsive design",
         "SEO-ready structure & fast performance",
         "Lead capture (WhatsApp / Email forms)",
-        "CRM / Email integration ready",
         "Google Analytics setup",
         "Scalable for future growth",
         "30 Days Free Support",
@@ -84,7 +100,8 @@ export default function PricingPage() {
     },
     {
       name: "Monthly Support",
-      price: 3000,
+      color: "gray",
+      price: 2999,
       period: "month",
       description: "Ongoing design & store management support.",
       features: [
@@ -99,11 +116,18 @@ export default function PricingPage() {
     },
   ];
 
+  const colorMap = {
+    gray: "border-gray-300 bg-gray-50",
+    blue: "border-blue-500 bg-blue-50",
+    purple: "border-purple-500 bg-purple-50",
+    teal: "border-teal-500 bg-teal-50",
+  };
+
   const faqs = [
     {
       question: "Are there any hidden charges?",
       answer:
-        "No hidden charges. Shopify subscription and domain are paid directly by you to the respective providers.",
+        "No hidden charges. Shopify subscription and domain are paid directly by you.",
     },
     {
       question: "Are there any monthly charges?",
@@ -118,7 +142,7 @@ export default function PricingPage() {
     {
       question: "Do you offer free sample?",
       answer:
-        "Yes, we provide a blurred homepage preview before any advance payment.",
+        "Yes, we provide a homepage preview before any advance payment.",
     },
   ];
 
@@ -126,28 +150,47 @@ export default function PricingPage() {
     <div className="w-full py-24 bg-white">
       <div className="max-w-7xl mx-auto px-6">
 
-        {/* Header */}
+        {/* HEADER */}
         <div className="max-w-3xl mx-auto text-center mb-20">
           <span className="text-teal font-bold uppercase tracking-widest text-sm">
             Pricing
           </span>
+
           <h1 className="text-4xl md:text-5xl font-bold text-navy mt-4">
-            Clear Pricing. No Hidden Surprises.
+             Simple Pricing to Launch & Grow Your Business Online
           </h1>
+
           <p className="text-slate-500 mt-6 text-lg">
-            Structured for growing businesses.
+             No hidden costs. No confusion. Just results-focused websites built to scale your business.
           </p>
+
+          <div className="flex flex-wrap justify-center gap-4 mt-4 text-sm text-slate-600">
+              <div className="flex items-center gap-2">
+                  <Check className="w-4 h-4 text-green-500" />
+                    <span>Built for growing businesses</span>
+              </div>
+
+              <div className="flex items-center gap-2">
+                  <Check className="w-4 h-4 text-green-500" />
+                    <span>Fast delivery</span>
+              </div>
+
+              <div className="flex items-center gap-2">
+                  <Check className="w-4 h-4 text-green-500" />
+                    <span>Transparent pricing</span>
+              </div>
+          </div>
         </div>
 
-        {/* Pricing Grid */}
+        {/* GRID */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {plans.map((plan) => (
             <div
               key={plan.name}
-              className={`relative rounded-3xl p-8 border flex flex-col transition-all duration-300 hover:-translate-y-2 ${
+              className={`relative rounded-3xl p-8 border flex flex-col h-full transition-all duration-300 hover:-translate-y-2 hover:shadow-xl ${
                 plan.isPopular
                   ? "border-teal shadow-2xl scale-105 z-10 bg-white"
-                  : "border-slate-200 bg-white hover:shadow-xl"
+                  : `${colorMap[plan.color]}`
               }`}
             >
               {plan.isPopular && (
@@ -156,11 +199,15 @@ export default function PricingPage() {
                 </div>
               )}
 
-              <h3 className="text-xl font-bold text-navy">{plan.name}</h3>
-              <p className="text-slate-500 mt-3 text-sm">
+              <h3 className="text-xl font-bold text-navy mb-2">
+                {plan.name}
+              </h3>
+
+              <p className="text-slate-500 mt-2 text-sm">
                 {plan.description}
               </p>
 
+              {/* PRICE */}
               <div className="mt-8 text-4xl font-bold text-navy">
                 ₹{plan.price.toLocaleString()}
                 {plan.period && (
@@ -170,6 +217,14 @@ export default function PricingPage() {
                 )}
               </div>
 
+              {/* SUBSCRIPTION BADGE */}
+              {plan.period && (
+                <span className="mt-2 text-xs bg-purple-100 text-purple-600 px-2 py-1 rounded-full w-fit">
+                  Subscription
+                </span>
+              )}
+
+              {/* FEATURES */}
               <ul className="mt-8 space-y-4 flex-grow">
                 {plan.features.map((feature, i) => (
                   <li key={i} className="flex gap-3 text-sm text-slate-600">
@@ -179,10 +234,28 @@ export default function PricingPage() {
                 ))}
               </ul>
 
+              {/* LIMITATIONS */}
+              {plan.limitations && (
+                <ul className="mt-4 space-y-1 text-xs text-red-500">
+                  {plan.limitations.map((item, i) => (
+                    <li key={i}>✖ {item}</li>
+                  ))}
+                </ul>
+              )}
+
+              {/* HIGHLIGHTS */}
+              {plan.highlight && (
+                <div className="mt-4 text-xs text-green-600 font-semibold">
+                  {plan.highlight.map((item, i) => (
+                    <div key={i}>✔ {item}</div>
+                  ))}
+                </div>
+              )}
+
+              {/* CTA FIXED */}
               <Link
-                to={plan.to}
-                state={{ selectedPlan: plan.name }}
-                className={`mt-10 text-center rounded-xl px-6 py-4 font-bold transition-all ${
+                to={`/contact?plan=${encodeURIComponent(plan.name)}`}
+                className={`mt-10 text-center rounded-xl px-6 py-4 font-bold transition-all hover:scale-105 active:scale-95 ${
                   plan.isPopular
                     ? "bg-navy text-white hover:bg-teal shadow-lg"
                     : "border border-slate-200 text-navy hover:border-teal hover:text-teal"
@@ -194,7 +267,7 @@ export default function PricingPage() {
           ))}
         </div>
 
-        {/* Additional Costs */}
+        {/* ADDITIONAL COSTS */}
         <div className="mt-32">
           <div className="text-center mb-12">
             <h3 className="text-2xl font-bold text-navy">Additional Costs</h3>
@@ -213,17 +286,17 @@ export default function PricingPage() {
               {
                 title: "Domain Name",
                 icon: <Globe className="text-teal" />,
-                desc: "Your website address (.com/.in)",
+                desc: "Website address (.com/.in)",
               },
               {
-                title: "Database",
+                title: "Database (Optional)",
                 icon: <Layout className="text-teal" />,
-                desc: "Stores website data (users, content, orders)",
+                desc: "Stores website data (Business sites Only)",
               },
               {
                 title: "Third-party Apps",
                 icon: <Smartphone className="text-teal" />,
-                desc: "Optional premium features",
+                desc: "Optional features",
               },
             ].map((cost, i) => (
               <div
@@ -250,9 +323,6 @@ export default function PricingPage() {
         <div className="mt-32 max-w-3xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-navy">Pricing FAQs</h2>
-            <p className="text-slate-500 mt-2">
-              Common questions about payments and process
-            </p>
           </div>
 
           <div className="space-y-4">
@@ -274,11 +344,22 @@ export default function PricingPage() {
                   />
                 </button>
 
-                {activeFaq === index && (
-                  <p className="px-6 pb-6 text-slate-600 text-sm">
-                    {faq.answer}
-                  </p>
-                )}
+                <AnimatePresence>
+                  {activeFaq === index && (
+                    <motion.div
+                      key="faq"
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="px-6 pb-6 overflow-hidden"
+                    >
+                      <p className="text-slate-600 text-sm">
+                        {faq.answer}
+                      </p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
             ))}
           </div>
