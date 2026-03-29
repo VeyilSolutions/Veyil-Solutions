@@ -8,6 +8,7 @@ const navLinks = [
   { name: "Price", to: "/price" },
   { name: "About", to: "/#about", id: "about" },
   { name: "FAQ", to: "/faq" },
+  { name: "Blog", to:"/Blogs"},
 ];
 
 function Navbar() {

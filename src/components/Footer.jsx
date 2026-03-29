@@ -56,7 +56,7 @@ function Footer() {
             to="/contact"
             className="inline-block bg-teal text-white text-sm font-semibold px-5 py-3 rounded-xl hover:bg-white hover:text-navy transition mb-6"
           >
-            Get Free Sample Website
+            Get Free Sample
           </Link>
 
           <SocialIcons />
