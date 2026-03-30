@@ -15,6 +15,7 @@ const services = [
     description:
       "Move beyond the 'WhatsApp Trap.' We build automated Shopify stores that handle payments, inventory, and shipping.",
     image: Webdev,
+    alt: "Shopify ecommerce website development in Tamil Nadu",
   },
   {
     id: "business-website-development",
@@ -23,6 +24,7 @@ const services = [
     description:
       "Lightning-fast websites that build trust and outrank competitors.",
     image: Webdesign,
+    alt: "Business website design services in Tamil Nadu",
   },
   {
     id: "design-services",
@@ -31,6 +33,7 @@ const services = [
     description:
       "Premium visuals, banners, and graphics for strong branding.",
     image: Mobile,
+    alt: "Graphic design and branding services in Tamil Nadu",
   },
 ];
 
@@ -106,7 +109,8 @@ export default function Services() {
 
                 <img
                   src={service.image}
-                  alt={service.title}
+                  alt={service.alt} 
+                  loading="lazy"
                   className="w-full h-full object-cover transition duration-500 group-hover:scale-105"
                 />
 

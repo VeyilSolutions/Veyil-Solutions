@@ -23,6 +23,8 @@ const testimonials = [
     link: "https://leaderclothings.in",
     description:
       "Excellent web development experience. The website design is clean, modern, and fully responsive across devices.",
+    alt: "Client Prasana from Leader Clothings website development testimonial in Tamil Nadu",
+    logoAlt: "Leader Clothings company logo Tamil Nadu",
   },
  
    {
@@ -34,6 +36,8 @@ const testimonials = [
     link: "https://path-finder-mu-three.vercel.app/",
     description:
       "We are extremely impressed with the final result. The website isn't just visually stunning and professional; its performance is seamless. The attention to detail throughout the development process ensured a high-quality product that truly represents our brand.",
+    alt: "Path Finder company website development testimonial Tamil Nadu",
+    logoAlt: "Path Finder company logo Tamil Nadu",
   },
 ]
 
@@ -125,7 +129,12 @@ export default function CleanPhysicsTestimonials() {
             >
               {/* Logo */}
               <div className="mb-5 bg-gray-100 px-3 py-1.5 rounded-full flex items-center gap-2">
-                <img src={current.logo} className="w-4 h-4" />
+                <img 
+                  src={current.logo} 
+                  alt={current.logoAlt} /* ✅ ADDED SEO ALT */
+                  loading="lazy"
+                  className="w-4 h-4" 
+                />
                 <span className="text-[10px] font-semibold text-gray-600 uppercase">
                   {current.company}
                 </span>
@@ -134,7 +143,8 @@ export default function CleanPhysicsTestimonials() {
               {/* Profile */}
               <img
                 src={current.image}
-                alt={current.name}
+                alt={current.alt} /* ✅ SEO OPTIMIZED ALT */
+                loading="lazy"
                 className="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover mb-4"
               />
 

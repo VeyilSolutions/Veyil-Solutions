@@ -74,7 +74,7 @@ export default function BlogDetails() {
           <link rel="canonical" href={`https://www.veyilsolutions.in/blogs/${blog.slug}`} />
         </Helmet>
 
-        {/* SHARE BUTTONS (unchanged UI, only spacing reduced) */}
+        {/* SHARE BUTTONS */}
         <div className="fixed right-4 top-1/2 z-40 hidden -translate-y-1/2 flex-col gap-3 rounded-2xl bg-white/70 p-3 shadow-lg backdrop-blur-md ring-1 ring-black/10 dark:bg-white/10 dark:ring-white/20 lg:flex">
           <button
             onClick={() => window.open(`https://twitter.com/intent/tweet?text=${blog.title}&url=${window.location.href}`)}
@@ -98,7 +98,7 @@ export default function BlogDetails() {
           </button>
         </div>
 
-        {/* BG (unchanged, just reduced height) */}
+        {/* BG */}
         <div className="absolute top-0 left-1/2 -z-[1] h-[600px] w-full -translate-x-1/2 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-gray-100 via-transparent to-transparent dark:from-gray-800/40"></div>
 
         <div className="mx-auto max-w-5xl px-4 sm:px-6">
@@ -114,7 +114,7 @@ export default function BlogDetails() {
             </nav>
           </div>
 
-          {/* HEADER (same design, font scaled) */}
+          {/* HEADER */}
           <header className="mb-10 border-l-4 border-black pl-4 dark:border-white md:pl-6">
             <div className="mb-3 inline-block rounded bg-gray-100 px-3 py-1 text-[10px] font-black uppercase tracking-widest dark:bg-white/10">
               {blog.category}
@@ -136,16 +136,17 @@ export default function BlogDetails() {
             </div>
           </header>
 
-          {/* HERO (same UI, reduced gap) */}
+          {/* HERO */}
           <div className="mb-14 overflow-hidden rounded-2xl shadow-xl ring-1 ring-black/5 dark:ring-white/10">
             <img
               src={blog.image}
-              alt={blog.title}
+              alt={blog.alt}
+              loading="lazy"
               className="aspect-[21/9] w-full max-h-[360px] object-cover transition-transform duration-700 hover:scale-105"
             />
           </div>
 
-          {/* TOC (same UI, compact spacing) */}
+          {/* TOC */}
           {headings.length > 0 && (
             <div className="mx-auto mb-14 max-w-4xl">
               <div className="rounded-2xl bg-gray-50 p-6 dark:bg-white/[0.03] dark:ring-1 dark:ring-white/10">
@@ -245,6 +246,8 @@ export default function BlogDetails() {
           <div className="mx-auto mt-16 flex max-w-4xl flex-col items-center gap-6 rounded-2xl bg-gray-50 p-6 text-center dark:bg-white/[0.03] md:flex-row md:text-left">
             <img
               src="/img/Veyil_Solutions.png"
+              alt="Veyil Solutions web design company in Tamil Nadu"
+              loading="lazy"
               className="h-20 w-20 rounded-full"
             />
             <div>

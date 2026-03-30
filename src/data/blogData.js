@@ -30,6 +30,8 @@ featured: true,
 
 image: whatsappSelling, 
 
+alt: "WhatsApp selling limitations for small business in Tamil Nadu ecommerce growth", 
+
 keywords: 
 [ 
     "whatsapp selling business", 
@@ -328,6 +330,7 @@ text: `Stop answering "Price?" messages all day. Let your website do the selling
 },
 
 //  2. Why Tamil Nadu Businesses Need Ecommerce Website
+
 {
 slug: "why-tamil-nadu-businesses-need-ecommerce-website",
 
@@ -352,6 +355,8 @@ location: "Tamil Nadu, India",
 featured: false,
 
 image: EcommerceTamilnadu,
+
+alt:"Ecommerce website benefits for small business in Tamil Nadu online store growth",
 
 keywords: [
 "ecommerce website tamil nadu",
@@ -586,6 +591,8 @@ text: `Your website is not just a digital brochure — it is your most powerful 
   featured: true,
 
   image: InstagramSelling,
+
+  alt: "Instagram selling limitations and ecommerce automation strategy Tamil Nadu business", 
 
   keywords: [
     "social commerce limitations",
