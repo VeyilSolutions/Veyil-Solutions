@@ -247,7 +247,11 @@ export default function About() {
         <div className="relative" data-aos="fade-right">
 
           <div className="w-full h-[350px] sm:h-[400px] lg:h-[480px] rounded-[2.5rem] shadow-2xl border bg-white flex items-center justify-center overflow-hidden">
-            <div ref={lottieRef} className="w-full h-full" />
+            <div 
+            ref={lottieRef} 
+            className="w-full h-full" 
+            role="img"
+            aria-label="Web design and development services animation for Tamil Nadu businesses"/>
           </div>
 
           <div className="absolute -bottom-6 -right-6 bg-navy text-white p-6 rounded-2xl shadow-xl max-w-[240px] hidden md:block">
