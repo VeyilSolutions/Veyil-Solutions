@@ -37,7 +37,7 @@ export default function Blog({ variant = "home", limit }) {
 
                 <img
                   src={article.image}
-                  alt={`${article.title} - Blog by Veyil Solutions`}
+                  alt={article.alt}
                   loading="lazy"
                   className="aspect-square h-56 w-full object-cover transition-transform duration-700 group-hover:scale-105 sm:h-72 md:h-80"
                 />
